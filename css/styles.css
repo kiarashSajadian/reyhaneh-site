@@ -5641,5 +5641,12 @@ p.underlay-nav__link-small { margin: 0; white-space: nowrap;font-variant-numeric
 
 /* Case studies archive on mobile: the banner hugs the title instead of keeping the desktop height */
 @media screen and (max-width: 767px) {
-  .cs-banner { min-height: 0; padding-top: 7rem; padding-bottom: var(--sys-spacing-8); }
+  .cs-banner { min-height: 0; padding-top: 9rem; padding-bottom: var(--sys-spacing-8); }
+}
+
+/* Case study cards on mobile: smaller pills, tighter heading, smaller company / call-to-action row */
+@media screen and (max-width: 767px) {
+  .case-tile__pill { padding: .4em .85em; font-size: .8em; }
+  .case-tile__h { line-height: 1.15; }
+  .case-tile__meta { padding-top: var(--sys-spacing-4); font-size: .85em; }
 }
