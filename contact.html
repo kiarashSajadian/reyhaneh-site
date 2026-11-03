@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Let’s Connect</title>
+  <meta name="description" content="SEO & GEO Manager in Berlin. Organic growth for search engines and for AI answers.">
+
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <script>
+    // Apply the saved theme before first paint (default: dark)
+    try {
+      var saved = localStorage.getItem('theme');
+      document.documentElement.dataset.theme = saved === 'light' ? 'light' : 'dark';
+    } catch (e) {
+      document.documentElement.dataset.theme = 'dark';
+    }
+  </script>
+  <link rel="stylesheet" href="vendor/lenis.css">
+  <link rel="stylesheet" href="css/tokens.css?v=202611031221">
+  <link rel="stylesheet" href="css/component-tokens.css?v=202611031221">
+  <link rel="stylesheet" href="css/styles.css?v=202611031227">
+</head>
+<body data-barba="wrapper">
+
+  <!-- Shutter Page Transition (outside the container) -->
+  <div data-transition-wrap class="transition">
+    <div data-transition-panel class="transition__panel">
+      <div data-transition-shutter class="transition__shutter"></div>
+    </div>
+  </div>
+
+  <!-- Theme toggle (outside the container, persists between pages) -->
+  <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+    <svg class="theme-toggle__icon is--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" fill="currentColor"/></svg>
+    <svg class="theme-toggle__icon is--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+
+  <main data-barba="container" data-barba-namespace="contact">
+    <!-- Placeholder page: replace with real content -->
+    <section class="page-stub">
+      <h1 class="page-stub__title" data-split="heading" data-split-reveal="lines">Let’s Connect</h1>
+      <p class="page-stub__text" data-split="heading" data-split-reveal="lines">Placeholder page to test the shutter transition.</p>
+      <div data-mask-reveal>
+        <a href="index.html" aria-label="Back home" class="btn-animate-chars is--hero">
+          <div class="btn-animate-chars__bg"></div>
+          <span data-button-animate-chars="" class="btn-animate-chars__text">Back home</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script src="vendor/barba.umd.min.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/CustomEase.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/SplitText.min.js"></script>
+  <script src="vendor/matter.min.js"></script>
+  <script src="js/main.js?v=202611031221"></script>
+  <script src="js/site.js?v=202611031221"></script>
+</body>
+</html>

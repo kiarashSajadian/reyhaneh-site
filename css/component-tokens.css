@@ -1,0 +1,523 @@
+/* ==========================================================================
+   Component tokens (comp)
+   Third tier of the design system. Each component gets its own tokens that
+   point at system tokens, so a component can be restyled in one place and
+   every instance stays consistent. Naming: --comp-<component>-<part>-<property>.
+   Sizes proportional to the component's own text are in em.
+   ========================================================================== */
+
+:root {
+  /* Hero */
+  --comp-hero-content-padding-block: var(--sys-spacing-8);
+  --comp-hero-content-padding-inline: var(--sys-layout-margin);
+  --comp-hero-media-scrim-color: var(--sys-color-media-scrim);
+  --comp-hero-media-overscan: 10%;  /* >= data-hero-parallax-speed of the photo x 100. Higher zooms the photo in. */
+  --comp-hero-on-media-color: var(--sys-color-on-media);
+  --comp-hero-title-spacing: var(--sys-spacing-16);
+  --comp-hero-subtitle-spacing: var(--sys-spacing-4);
+  --comp-hero-actions-spacing: var(--sys-spacing-10);
+  --comp-hero-actions-gap: var(--sys-spacing-6);
+
+  /* Tag (assist chip on media) */
+  --comp-tag-container-color: var(--sys-color-media-container);
+  --comp-tag-label-color: var(--sys-color-on-media-container);
+  --comp-tag-container-shape: var(--sys-shape-corner-full);
+  --comp-tag-label-font: var(--sys-typescale-label-medium-font);
+  --comp-tag-label-tracking: var(--sys-typescale-label-medium-tracking);
+  --comp-tag-padding-block: var(--sys-spacing-2);
+  --comp-tag-padding-inline: var(--sys-spacing-4);
+  --comp-tag-gap: var(--sys-spacing-3);
+  --comp-tag-dot-size: 0.375em;
+
+  /* Button (filled and tonal, on media) */
+  --comp-button-label-font: var(--sys-typescale-label-large-font);
+  --comp-button-label-tracking: var(--sys-typescale-label-large-tracking);
+  --comp-button-container-shape: var(--sys-shape-corner-small);
+  --comp-button-padding-block: var(--sys-spacing-3);
+  --comp-button-padding-inline: var(--sys-spacing-4);
+  --comp-button-focus-ring-width: 0.125em;
+  --comp-button-focus-ring-offset: 0.25em;
+  --comp-button-filled-container-color: var(--sys-color-media-primary);
+  --comp-button-filled-label-color: var(--sys-color-on-media-primary);
+  --comp-button-tonal-container-color: var(--sys-color-media-container);
+  --comp-button-tonal-label-color: var(--sys-color-on-media-container);
+
+  /* Marquee */
+  --comp-marquee-container-color: var(--sys-color-surface);
+  --comp-marquee-label-color: var(--sys-color-on-surface);
+  --comp-marquee-outline-color: var(--sys-color-outline);
+  --comp-marquee-label-font: var(--sys-typescale-headline-medium-font);
+  --comp-marquee-label-tracking: var(--sys-typescale-headline-medium-tracking);
+  --comp-marquee-padding-block: var(--sys-spacing-4);
+  --comp-marquee-item-gap: 0.9em;
+  --comp-marquee-icon-size: 1em;
+
+  /* Section label ("Worked with & for", "little more about me :)"): one style for every section label */
+  --comp-section-label-font: var(--sys-typescale-title-medium-font);
+  --comp-section-label-tracking: var(--sys-typescale-title-medium-tracking);
+  --comp-section-label-spacing: var(--sys-spacing-10);  /* label to content */
+
+  /* About */
+  --comp-about-container-color: var(--sys-color-background);
+  --comp-about-text-color: var(--sys-color-on-background);
+  --comp-about-text-font: var(--sys-typescale-headline-large-font);
+  --comp-about-text-tracking: var(--sys-typescale-headline-large-tracking);
+  --comp-about-padding-top: var(--sys-layout-section-padding);
+  --comp-about-padding-bottom: var(--sys-layout-section-padding);
+  --comp-about-padding-inline: var(--sys-layout-margin);
+  --comp-about-content-width: var(--sys-layout-content-width);
+
+  /* Logos (worked with & for) */
+  --comp-logos-container-color: var(--sys-color-background);
+  --comp-logos-label-color: var(--sys-color-on-background);
+  --comp-logos-label-font: var(--comp-section-label-font);
+  --comp-logos-label-tracking: var(--comp-section-label-tracking);
+  --comp-logos-padding-top: var(--sys-layout-section-padding);
+  --comp-logos-padding-bottom: var(--sys-layout-section-padding);
+  --comp-logos-padding-inline: var(--sys-layout-margin);
+  --comp-logos-label-spacing: var(--comp-section-label-spacing);
+  --comp-logo-wall-width: 60rem;
+  --comp-logo-wall-logo-filter: invert(1);  /* the logo files are white: inverted to black on the light theme */
+
+  /* Bio (little more about me) */
+  --comp-bio-container-color: var(--sys-color-background);
+  --comp-bio-on-container-color: var(--sys-color-on-background);
+  --comp-bio-eyebrow-font: var(--comp-section-label-font);
+  --comp-bio-eyebrow-tracking: var(--comp-section-label-tracking);
+  --comp-bio-title-font: var(--sys-typescale-display-medium-font);
+  --comp-bio-title-tracking: var(--sys-typescale-display-medium-tracking);
+  --comp-bio-highlight-color: var(--sys-color-accent);
+  --comp-bio-text-font: var(--sys-typescale-headline-medium-font);
+  --comp-bio-text-tracking: var(--sys-typescale-headline-medium-tracking);
+  --comp-bio-text-width: 47.5rem;
+  --comp-bio-centered-text-width: 39rem;
+  --comp-bio-text-gap: var(--sys-spacing-12);
+  --comp-bio-title-spacing: var(--comp-section-label-spacing);
+  --comp-bio-column-gap: 4rem;
+  --comp-bio-padding-block: var(--sys-layout-section-padding);
+  --comp-bio-padding-inline: 6.75rem;
+
+  /* Expertise (What I do) and Card stack */
+  --comp-expertise-container-color: var(--sys-color-background);
+  --comp-expertise-on-container-color: var(--sys-color-on-background);
+  --comp-expertise-padding-block: var(--sys-layout-section-padding);
+  --comp-expertise-padding-inline: var(--comp-bio-padding-inline);
+  --comp-expertise-title-font: var(--sys-typescale-display-medium-font);
+  --comp-expertise-title-tracking: var(--sys-typescale-display-medium-tracking);
+  --comp-expertise-content-width: 70rem;
+  --comp-expertise-header-spacing: var(--sys-spacing-16);
+  --comp-card-stack-row: 80svh;                 /* scroll distance each card gets */
+  --comp-card-stack-top: 12svh;                 /* offset the cards pin at */
+  --comp-card-stack-card-height: 30rem;
+  --comp-card-stack-container-color: var(--sys-color-surface-container);
+  --comp-card-stack-outline-color: var(--sys-color-outline-variant);
+  --comp-card-stack-on-container-color: var(--sys-color-on-surface);
+  --comp-card-stack-on-container-variant-color: var(--sys-color-on-surface-variant);
+  --comp-card-stack-index-color: var(--sys-color-accent);
+  --comp-card-stack-container-shape: var(--sys-shape-corner-extra-large);
+  --comp-card-stack-padding: var(--sys-spacing-12);
+  --comp-card-stack-title-font: var(--sys-typescale-display-medium-font);
+  --comp-card-stack-title-tracking: var(--sys-typescale-display-medium-tracking);
+  --comp-card-stack-text-font: var(--sys-typescale-body-large-font);
+  --comp-card-stack-text-tracking: var(--sys-typescale-body-large-tracking);
+  --comp-card-stack-index-font: var(--sys-typescale-label-large-font);
+  --comp-card-stack-index-tracking: var(--sys-typescale-label-large-tracking);
+
+  /* Dropping cards stack */
+  --comp-dropping-stack-card-width: 32rem;
+  --comp-dropping-stack-offset: 8rem;            /* padding right and bottom of the collection: the total spread of the stack */
+  --comp-dropping-stack-card-ratio: 118%;
+  --comp-dropping-stack-card-gap: var(--sys-spacing-4);  /* between heading block, media and paragraph */
+  --comp-dropping-stack-card-shape: var(--sys-shape-corner-extra-large);
+  --comp-dropping-stack-card-padding: var(--sys-spacing-8);
+  --comp-dropping-stack-container-color: var(--sys-color-surface-container);
+  --comp-dropping-stack-on-container-color: var(--sys-color-on-surface);
+  --comp-dropping-stack-outline-color: var(--sys-color-outline-variant);
+  --comp-dropping-stack-accent-container-color: var(--sys-color-accent-container);
+  --comp-dropping-stack-on-accent-container-color: var(--sys-color-on-accent-container);
+  --comp-dropping-stack-inverse-container-color: var(--sys-color-inverse-surface);
+  --comp-dropping-stack-on-inverse-container-color: var(--sys-color-inverse-on-surface);
+  --comp-dropping-stack-high-container-color: var(--sys-color-surface-container-highest);
+  --comp-dropping-stack-title-font: var(--sys-typescale-display-small-font);
+  --comp-dropping-stack-title-tracking: var(--sys-typescale-display-small-tracking);
+  --comp-dropping-stack-text-font: var(--sys-typescale-body-large-font);
+  --comp-dropping-stack-text-tracking: var(--sys-typescale-body-large-tracking);
+  --comp-dropping-stack-visual-color: color-mix(in srgb, currentColor 10%, transparent);
+  --comp-dropping-stack-visual-shape: var(--sys-shape-corner-large);
+  --comp-dropping-stack-index-font: var(--sys-typescale-label-large-font);
+  --comp-dropping-stack-index-tracking: var(--sys-typescale-label-large-tracking);
+  --comp-dropping-stack-control-size: 4.5rem;
+  --comp-dropping-stack-control-gap: var(--sys-spacing-2);
+  --comp-dropping-stack-control-container-color: var(--sys-color-primary);
+  --comp-dropping-stack-control-label-color: var(--sys-color-on-primary);
+  --comp-dropping-stack-control-prev-container-color: var(--sys-color-surface-container-high);
+  --comp-dropping-stack-control-prev-label-color: var(--sys-color-on-surface);
+
+  /* Expertise option 1: hover list with cursor preview */
+  --comp-preview-container-color: var(--sys-color-background);
+  --comp-preview-on-container-color: var(--sys-color-on-background);
+  --comp-preview-padding-block: var(--sys-layout-section-padding);
+  --comp-preview-padding-inline: var(--comp-bio-padding-inline);
+  --comp-preview-content-width: 70rem;
+  --comp-preview-header-spacing: var(--sys-spacing-12);
+  --comp-preview-row-padding: var(--sys-spacing-10);
+  --comp-preview-divider-color: var(--sys-color-outline-variant);
+  --comp-preview-label-color: var(--sys-color-on-surface-variant);
+  --comp-preview-heading-font: var(--sys-typescale-display-medium-font);
+  --comp-preview-heading-tracking: var(--sys-typescale-display-medium-tracking);
+  --comp-preview-text-font: var(--sys-typescale-body-medium-font);
+  --comp-preview-visual-width: 20em;
+  --comp-preview-visual-radius: var(--sys-shape-corner-large);
+  --comp-preview-visual-1-color: var(--sys-color-surface-container-high);
+  --comp-preview-visual-2-color: var(--sys-color-accent-container);
+  --comp-preview-visual-3-color: var(--sys-color-inverse-surface);
+  --comp-preview-visual-4-color: var(--sys-color-surface-container-highest);
+  --comp-preview-dim-opacity: 0.4;              /* the rows that are not hovered */
+
+  /* Expertise options 2 to 4: shared section, sticky features, expanding pills */
+  --comp-expertise-variant-container-color: var(--sys-color-background);
+  --comp-expertise-variant-on-container-color: var(--sys-color-on-background);
+  --comp-expertise-variant-padding-block: var(--sys-layout-section-padding);
+  --comp-expertise-variant-padding-inline: var(--comp-bio-padding-inline);
+  --comp-expertise-variant-content-width: 70rem;
+  --comp-sticky-muted-color: var(--sys-color-on-surface-variant);
+  --comp-sticky-progress-track-color: color-mix(in srgb, var(--sys-color-on-background) 15%, transparent);
+  --comp-sticky-progress-color: var(--sys-color-on-background);
+  --comp-sticky-tag-color: color-mix(in srgb, var(--sys-color-on-background) 8%, transparent);
+  --comp-pills-container-color: var(--sys-color-surface-dark);       /* stays dark in both themes */
+  --comp-pills-on-container-color: var(--sys-color-on-surface-dark);
+  --comp-pills-max-width: 75rem;
+  --comp-pills-height: 45rem;
+  --comp-pills-radius: var(--sys-shape-corner-extra-large);
+  --comp-pills-cover-color: var(--sys-color-surface-container-high);
+
+  /* Case studies (stacking cards) */
+  --comp-case-studies-container-color: var(--sys-color-background);
+  --comp-case-studies-on-container-color: var(--sys-color-on-background);
+  --comp-case-studies-padding-block: var(--sys-layout-section-padding);
+  --comp-case-studies-padding-inline: var(--comp-bio-padding-inline);
+  --comp-case-studies-header-spacing: var(--sys-spacing-16);
+  --comp-case-card-container-color: var(--sys-color-inverse-surface);
+  --comp-case-card-on-color: var(--sys-color-inverse-on-surface);
+  --comp-case-card-accent-container-color: var(--sys-color-accent-container);
+  --comp-case-card-on-accent-color: var(--sys-color-on-accent-container);
+  --comp-case-card-shape: var(--sys-shape-corner-extra-large);
+  --comp-case-card-min-height: 100svh;
+  --comp-case-card-padding: var(--sys-spacing-12);
+  --comp-case-card-content-width: 70rem;
+  --comp-case-card-gap: var(--sys-spacing-16);
+  --comp-case-card-visual-shape: var(--sys-shape-corner-large);
+  --comp-case-card-visual-fill: color-mix(in srgb, currentColor 10%, transparent);
+  --comp-case-card-visual-line: color-mix(in srgb, currentColor 30%, transparent);
+
+  /* Case study tiles and cursor marquee */
+  --comp-case-tile-container-color: var(--sys-color-surface-container-low);   /* very slightly off the page color, in both themes */
+  --comp-case-tile-on-container-color: var(--sys-color-on-surface);
+  --comp-case-tile-border-color: var(--sys-color-surface-container-high);   /* slightly off the page color, in both themes */
+  --comp-case-tile-hover-border-color: var(--sys-color-outline-variant);
+  --comp-case-tile-shape: var(--sys-shape-corner-extra-large);
+  --comp-case-tile-gap: var(--sys-spacing-8);
+  --comp-case-tile-padding: var(--sys-spacing-3);                 /* space around the inset image */
+  --comp-case-tile-body-padding: var(--sys-spacing-4);
+  --comp-case-tile-visual-shape: var(--sys-shape-corner-large);
+  --comp-case-tile-pill-container-color: color-mix(in srgb, var(--sys-color-scrim) 22%, transparent);   /* glass: a light dark tint over the image */
+  --comp-case-tile-pill-label-color: var(--sys-color-on-media);
+  --comp-case-tile-pill-border-color: color-mix(in srgb, var(--sys-color-on-media) 40%, transparent);
+  --comp-case-tile-pill-blur: 0.75em;
+  --comp-case-tile-meta-color: var(--sys-color-on-surface-variant);
+  --comp-case-tile-visual-color: var(--sys-color-surface-container-high);
+  --comp-case-tile-visual-ratio: 5 / 4;
+  --comp-case-tile-visual-ratio-wide: 2 / 1;                      /* case study cards: landscape, twice as wide as tall */
+  --comp-case-tile-row-gap: var(--sys-spacing-8);                  /* between the case studies and the articles */
+  --comp-case-tile-type-pill-container-color: var(--sys-color-inverse-surface);   /* the "Case study" / "Article" tag */
+  --comp-case-tile-type-pill-label-color: var(--sys-color-inverse-on-surface);
+  --comp-case-tile-img-filter: none;                /* full color (set to grayscale(1) for black and white until hover) */
+  --comp-case-tile-img-duration: .6s;
+  --comp-cursor-marquee-container-color: var(--sys-color-inverse-surface);
+  --comp-cursor-marquee-label-color: var(--sys-color-inverse-on-surface);
+  --comp-cursor-marquee-ease: cubic-bezier(.75, 0, .25, 1);
+
+  /* Fixed underlay navigation */
+  --comp-nav-menu-width: 30rem;
+  --comp-nav-menu-container-color: var(--sys-color-background);   /* also the color of the frame around the page edge */
+  --comp-nav-menu-on-container-color: var(--sys-color-on-background);
+  --comp-nav-menu-link-hover-color: var(--sys-color-surface-container);
+  --comp-nav-header-padding-block: var(--sys-spacing-6);
+  --comp-nav-header-padding-inline: var(--sys-layout-margin);
+  --comp-nav-toggle-container-color: var(--sys-color-inverse-surface);
+  --comp-nav-toggle-label-color: var(--sys-color-inverse-on-surface);
+  --comp-nav-toggle-padding-block: var(--sys-spacing-3);
+  --comp-nav-toggle-padding-inline: var(--sys-spacing-5);
+  --comp-nav-link-font: var(--sys-typescale-display-medium-font);
+  --comp-nav-link-tracking: -0.04em;
+  --comp-nav-frame-size: 1em;                                      /* top and bottom strip around the page edge */
+  --comp-nav-dim-color: color-mix(in srgb, var(--sys-color-scrim) 30%, transparent);
+
+  /* Speaking (dark list) */
+  --comp-speaking-container-color: var(--sys-color-inverse-surface);   /* dark in light theme, light in dark theme */
+  --comp-speaking-on-container-color: var(--sys-color-inverse-on-surface);
+  --comp-speaking-padding-block: var(--sys-layout-section-padding);
+  --comp-speaking-padding-inline: var(--comp-bio-padding-inline);
+  --comp-speaking-content-width: 70rem;
+  --comp-speaking-gap: var(--sys-spacing-16);
+  --comp-speaking-stat-font: var(--sys-typescale-display-large-font);
+  --comp-speaking-stat-label-color: color-mix(in srgb, var(--comp-speaking-on-container-color) 65%, transparent);
+  --comp-directional-list-border-color: color-mix(in srgb, var(--comp-speaking-on-container-color) 30%, transparent);
+  --comp-directional-list-label-color: color-mix(in srgb, var(--comp-speaking-on-container-color) 60%, transparent);
+  --comp-directional-list-tile-color: var(--sys-color-accent);
+  --comp-directional-list-on-tile-color: var(--sys-color-on-accent-container);   /* text color while the tile covers the row */
+  --comp-directional-list-row-padding: var(--sys-spacing-8);
+  --comp-directional-list-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Speaking tabs (Tab System with Autoplay) */
+  --comp-speaking-tabs-container-color: var(--sys-color-surface-container-low);
+  --comp-speaking-tabs-on-container-color: var(--sys-color-on-surface);
+  --comp-speaking-tabs-muted-color: var(--sys-color-on-surface-variant);
+  --comp-speaking-tabs-divider-color: var(--sys-color-outline-variant);
+  --comp-speaking-tabs-progress-color: var(--sys-color-on-surface);       /* fill of the active button: black in light theme, near-white in dark */
+  --comp-speaking-tabs-blend-color: var(--sys-color-on-media);            /* white: with the difference blend it reads dark on the page and flips over the fill */
+  --comp-speaking-tabs-padding-block: var(--sys-layout-section-padding);
+  --comp-speaking-tabs-padding-inline: var(--comp-bio-padding-inline);
+  --comp-speaking-tabs-content-width: 70rem;
+  --comp-speaking-tabs-gap: var(--sys-spacing-16);
+  --comp-speaking-tabs-visual-ratio: 4 / 3;                              /* when the layout is one column */
+  --comp-speaking-tabs-visual-min-height: 20rem;
+  --comp-speaking-tabs-visual-shape: var(--sys-shape-corner-extra-large);
+  --comp-speaking-tabs-item-padding: var(--sys-spacing-6);
+  --comp-speaking-tabs-item-shape: var(--sys-shape-corner-large);
+  --comp-speaking-tabs-inactive-opacity: 0.5;
+
+  /* Recommendations options (line reveal, centered slider, logo card) */
+  --comp-reco-container-color: var(--sys-color-background);
+  --comp-reco-on-container-color: var(--sys-color-on-background);
+  --comp-reco-dark-container-color: var(--sys-color-inverse-surface);       /* dark in light theme, light in dark theme */
+  --comp-reco-dark-on-container-color: var(--sys-color-inverse-on-surface);
+  --comp-reco-soft-container-color: var(--sys-color-surface-container-low);
+  --comp-reco-padding-block: var(--sys-layout-section-padding);
+  --comp-reco-padding-inline: var(--comp-bio-padding-inline);
+  --comp-reco-content-width: 70rem;
+  --comp-reco-header-spacing: var(--sys-spacing-16);
+  --comp-reco-line-color: color-mix(in srgb, currentColor 25%, transparent);
+  --comp-reco-fill-color: color-mix(in srgb, currentColor 8%, transparent);
+  --comp-reco-accent-color: var(--sys-color-accent);
+  --comp-reco-shape: var(--sys-shape-corner-small);
+  --comp-reco-slide-width: 22.5em;                                  /* one card (21em) plus its 0.75em side padding */
+  --comp-reco-slider-fade: 14%;                                      /* how far in from each edge the half cards fade out */
+  --comp-reco-slider-width: calc(var(--comp-reco-slide-width) * 4);   /* 4 cards wide: centre + one each side + half of the next each side */
+  --comp-logo-testimonials-card-color: var(--sys-color-surface-container-lowest);
+  --comp-logo-testimonials-card-border-color: var(--sys-color-surface-container-high);
+  --comp-logo-testimonials-on-card-color: var(--sys-color-on-surface);
+  --comp-logo-testimonials-dot-color: var(--sys-color-outline-variant);
+
+  /* Writing (article cards and lectures list) */
+  --comp-writing-container-color: var(--sys-color-surface-container-low);
+  --comp-writing-on-container-color: var(--sys-color-on-surface);
+  --comp-writing-padding-block: var(--sys-layout-section-padding);
+  --comp-writing-padding-inline: var(--comp-bio-padding-inline);
+  --comp-writing-content-width: 70rem;
+  --comp-writing-header-spacing: var(--sys-spacing-16);
+  --comp-writing-block-gap: var(--sys-spacing-32);               /* between the articles and the lectures list */
+  --comp-writing-card-color: var(--sys-color-background);          /* cards stand out from the off-white section */
+  --comp-writing-list-border-color: color-mix(in srgb, var(--comp-writing-on-container-color) 30%, transparent);
+  --comp-writing-list-label-color: color-mix(in srgb, var(--comp-writing-on-container-color) 60%, transparent);
+
+  /* Contact + footer (Footer Parallax Effect, Copy Email to Clipboard) */
+  --comp-footer-container-color: var(--sys-color-inverse-surface);       /* dark in light theme, light in dark theme */
+  --comp-footer-on-container-color: var(--sys-color-inverse-on-surface);
+  --comp-footer-muted-color: color-mix(in srgb, var(--comp-footer-on-container-color) 65%, transparent);
+  --comp-footer-divider-color: color-mix(in srgb, var(--comp-footer-on-container-color) 25%, transparent);
+  --comp-footer-dim-color: var(--sys-color-scrim);                        /* the layer that fades away as the footer rises */
+  --comp-footer-padding-block: var(--sys-layout-section-padding);
+  --comp-footer-padding-inline: var(--comp-bio-padding-inline);
+  --comp-footer-padding-bottom: var(--sys-spacing-6);                    /* room under the legal row */
+  --comp-footer-gap: var(--sys-spacing-16);
+  --comp-footer-columns: 1.5fr 1fr 1fr 1.5fr;                          /* brand, two link columns, contact */
+  --comp-footer-column-gap: var(--sys-spacing-12);
+  --comp-footer-art-height: 32svh;                                     /* the painting along the bottom */
+  --comp-footer-content-width: 100%;                                   /* the footer spans the full width, inside the page margin */
+  --comp-footer-title-font: var(--sys-typescale-display-large-font);
+  --comp-footer-title-tracking: var(--sys-typescale-display-large-tracking);
+  --comp-footer-center-width: 28rem;                                    /* title, mascot and button all use this width */
+  --comp-footer-title-size: 15.4cqw;                                      /* fills the center width: tune so the title just fits */
+  --comp-footer-center-gap: var(--sys-spacing-6);                       /* title, mascot and button */
+  --comp-footer-button-container-color: var(--comp-footer-on-container-color);   /* same pairing as the copy-email button */
+  --comp-footer-button-padding-block: var(--sys-spacing-5);               /* taller than the other buttons */
+  --comp-footer-button-label-font: var(--ref-typeface-weight-medium) 1.25em/1 var(--ref-typeface-plain);   /* bigger than the other buttons */
+  --comp-footer-button-label-color: var(--comp-footer-container-color);
+  --comp-footer-nav-gap: var(--sys-spacing-16);
+  --comp-footer-nav-font: var(--sys-typescale-display-medium-font);
+  --comp-footer-nav-tracking: var(--sys-typescale-display-medium-tracking);
+  --comp-footer-playground-min-height: 24rem;                           /* the space the objects fall through, above the name */
+  --comp-footer-wordmark-size: 14.1cqw;                                 /* fills the width: tune so the name just fits */
+  --comp-footer-wordmark-weight: var(--ref-typeface-weight-bold);
+  --comp-footer-wordmark-tracking: -0.05em;
+  --comp-footer-parallax-offset: -25;                                      /* percent the footer starts above its place; read by the script */
+  --comp-copy-email-container-color: var(--comp-footer-on-container-color);
+  --comp-copy-email-label-color: var(--comp-footer-container-color);
+  --comp-copy-email-icon-container-color: var(--sys-color-accent);
+  --comp-copy-email-icon-color: var(--sys-color-on-accent-container);
+  --comp-copy-email-copied-color: var(--sys-color-accent);
+  --comp-copy-email-shape: var(--sys-shape-corner-small);
+
+  /* Dark section */
+  --comp-dark-container-color: var(--sys-color-surface-dark);
+  --comp-dark-on-container-color: var(--sys-color-on-surface-dark);
+  --comp-dark-padding-block: var(--sys-layout-section-padding);
+  --comp-dark-padding-inline: var(--comp-bio-padding-inline);
+
+  /* Experience section (step timeline on a glass panel) */
+  --comp-experience-container-color: var(--sys-color-surface-container-low);   /* follows the theme: off-white in light, near-black in dark */
+  --comp-experience-on-container-color: var(--sys-color-on-surface);
+  --comp-experience-padding-block: var(--sys-layout-section-padding);
+  --comp-experience-padding-inline: var(--comp-bio-padding-inline);
+  --comp-experience-panel-width: 56rem;
+  --comp-experience-panel-padding: var(--sys-spacing-12);
+  --comp-experience-panel-radius: var(--sys-shape-corner-extra-large);
+  --comp-experience-actions-gap: var(--sys-spacing-3);
+  --comp-experience-actions-spacing: var(--sys-spacing-10);
+  --comp-experience-media-width: 22rem;
+  --comp-experience-media-overlap: 3rem;                                  /* how far each image reaches under the glass panel */
+  --comp-experience-media-tuck: 7rem;                                     /* the two middle images go this much further under the glass */
+  --comp-experience-media-radius: var(--sys-shape-corner-large);
+  --comp-experience-glass-fill: color-mix(in srgb, var(--comp-experience-container-color) 55%, transparent);  /* the tint keeps the text readable over the images */
+  --comp-experience-glass-blur: 1.5em;
+  --comp-experience-button-container-color: var(--sys-color-primary);
+  --comp-experience-button-label-color: var(--sys-color-on-primary);
+  --comp-experience-button-tonal-container-color: var(--sys-color-secondary-container);
+  --comp-experience-button-tonal-label-color: var(--sys-color-on-secondary-container);
+
+  /* Step-by-step timeline */
+  --comp-step-timeline-gap: 6em;                 /* space between steps */
+  --comp-step-timeline-marker-size: 2rem;
+  --comp-step-timeline-line-color: color-mix(in srgb, var(--comp-experience-on-container-color) 22%, transparent);
+  --comp-step-timeline-accent-color: var(--comp-experience-on-container-color);
+  --comp-step-timeline-on-accent-color: var(--comp-experience-container-color);
+  --comp-step-timeline-marker-color: color-mix(in srgb, var(--comp-experience-on-container-color) 10%, var(--comp-experience-container-color));
+  --comp-step-timeline-ease: cubic-bezier(.645, .045, .355, 1);
+  --comp-step-timeline-opacity-inactive: 0.4;
+  --comp-step-timeline-opacity-active: 0.65;
+
+  /* Shutter scroll transition */
+  --comp-shutter-scroll-color: var(--sys-color-surface-dark);  /* match the background of the next section */
+  --comp-shutter-scroll-row-height: 1.5em;
+  --comp-shutter-scroll-rows: 8;                                /* keep equal to data-rows on the wrapper */
+
+  /* Shimmer text */
+  --comp-shimmer-text-base-color: color-mix(in srgb, var(--sys-color-accent) 55%, var(--sys-color-on-background));
+  --comp-shimmer-text-highlight-color: var(--sys-color-accent);
+  --comp-shimmer-text-duration: 2.5s;
+  --comp-shimmer-text-vinted-color: #007782;
+  --comp-shimmer-text-helpling-color: #4ec092;
+  --comp-shimmer-text-awards-color: #f7ea26;
+
+  /* Theme toggle (icon button on media) */
+  --comp-theme-toggle-size: 2.75rem;
+  --comp-theme-toggle-icon-size: 1.25rem;
+  --comp-theme-toggle-offset: var(--sys-spacing-5);
+  --comp-theme-toggle-container-color: var(--sys-color-media-container);
+  --comp-theme-toggle-icon-color: var(--sys-color-on-media-container);
+  --comp-theme-toggle-container-shape: var(--sys-shape-corner-full);
+
+  /* Page transition (shutter) */
+  --comp-transition-shutter-color: var(--sys-color-surface-container-lowest);
+
+  /* Placeholder pages */
+  --comp-page-stub-container-color: var(--sys-color-background);
+  --comp-page-stub-title-color: var(--sys-color-on-background);
+  --comp-page-stub-text-color: var(--sys-color-on-surface-variant);
+}
+
+[data-theme="dark"] {
+  --comp-logo-wall-logo-filter: none;
+  --comp-logo-testimonials-card-color: var(--sys-color-surface-container);
+  --comp-nav-menu-container-color: var(--sys-color-surface-container-high);   /* lighter than the page so the open menu stands out */
+  --comp-nav-menu-link-hover-color: var(--sys-color-surface-container-highest);
+}
+
+@media screen and (max-width: 767px) {
+  :root {
+    --comp-bio-padding-inline: var(--sys-layout-margin);
+    --comp-bio-text-font: var(--sys-typescale-body-large-font);
+    --comp-dropping-stack-offset: 4.5rem;
+    --comp-dropping-stack-card-ratio: 150%;
+    --comp-dropping-stack-card-padding: var(--sys-spacing-6);
+    --comp-card-stack-card-height: 34rem;
+    --comp-card-stack-padding: var(--sys-spacing-6);
+    --comp-hero-title-spacing: var(--sys-spacing-12);
+    --comp-hero-actions-gap: var(--sys-spacing-3);
+  }
+}
+
+/* Case studies archive */
+:root {
+  --comp-cs-banner-height: 31.25rem;
+  --comp-cs-banner-padding-top: 6.25rem;
+  --comp-cs-banner-padding-bottom: 6.25rem;
+  --comp-cs-banner-container-color: var(--sys-color-background);          /* same as the page */
+  --comp-cs-banner-on-container-color: var(--sys-color-on-background);
+  --comp-cs-banner-border-color: var(--sys-color-outline-variant);
+  --comp-cs-banner-title-size: 15.15cqw;                                  /* fills the content width: tune so the title just fits */
+  --comp-cs-banner-title-weight: 800;
+  --comp-cs-banner-title-line-height: .85;
+  --comp-cs-banner-title-tracking: -.045em;
+  --comp-cs-row-media-width: 46%;
+  --comp-cs-row-media-min-height: 20rem;
+  --comp-cs-row-gap: var(--sys-spacing-8);
+  --comp-cs-row-body-padding: var(--sys-spacing-4) var(--sys-spacing-6) var(--sys-spacing-4) 0;
+}
+
+/* Nav buttons that blend with the page (logo, theme toggle) */
+:root {
+  --comp-nav-blend-color: var(--sys-color-on-media);
+}
+
+/* Experience: one surface step lighter in the dark theme */
+[data-theme="dark"] {
+  --comp-experience-container-color: var(--sys-color-surface-container);
+}
+
+/* Mascot in the footer (Face Follow Cursor) */
+:root {
+  --comp-mascot-width: max(14em, 34vh);
+  --comp-mascot-light-color: var(--ref-palette-neutral-100);   /* the illustration keeps the same colors in both themes */
+  --comp-mascot-dark-color: var(--ref-palette-neutral-0);
+  --comp-mascot-accent-color: var(--sys-color-accent);
+}
+
+/* Case study article: centered header, wide cover, share rail + article + table of contents */
+:root {
+  --comp-cs-head-padding-top: calc(var(--sys-layout-section-padding) + 4em);
+  --comp-cs-head-width: 52rem;
+  --comp-cs-head-text-width: 36rem;
+  --comp-cs-head-gap: var(--sys-spacing-5);
+  --comp-cs-head-pill-container-color: var(--sys-color-surface-container-high);
+  --comp-cs-head-pill-label-color: var(--sys-color-on-surface-variant);
+  --comp-cs-head-pill-type-container-color: var(--sys-color-on-background);   /* the first pill (Case study) is filled */
+  --comp-cs-head-pill-type-label-color: var(--sys-color-background);
+  --comp-cs-head-meta-gap: var(--sys-spacing-8);
+  --comp-cs-head-meta-divider-color: var(--sys-color-outline-variant);
+  --comp-cs-cover-width: 62rem;
+  --comp-cs-cover-ratio: 2 / 1;
+  --comp-cs-layout-gap: var(--sys-spacing-12);
+  --comp-cs-rail-width: 2.75rem;
+  --comp-cs-toc-width: 13.75rem;
+  --comp-cs-toc-mobile-max-height: 12rem;
+  --comp-cs-article-width: 40rem;
+  --comp-cs-share-size: 2.75rem;
+  --comp-cs-share-gap: var(--sys-spacing-3);
+  --comp-cs-share-border-color: var(--sys-color-outline-variant);
+}
+
+/* Case study: tools box under the cover (same width as the cover) */
+:root {
+  --comp-cs-stack-container-color: var(--sys-color-surface-container-low);
+  --comp-cs-stack-border-color: var(--sys-color-outline-variant);
+  --comp-cs-stack-shape: var(--comp-case-tile-shape);
+  --comp-cs-stack-padding: var(--sys-spacing-4) var(--sys-spacing-5);
+  --comp-cs-stack-gap: var(--sys-spacing-3);
+  --comp-cs-stack-list-gap: var(--sys-spacing-2);
+  --comp-cs-stack-item-padding: var(--sys-spacing-2) var(--sys-spacing-3);
+  --comp-cs-stack-item-font: var(--ref-typeface-weight-regular) 14px/1.4 var(--ref-typeface-plain);
+  --comp-cs-stack-item-container-color: var(--sys-color-background);
+  --comp-cs-stack-item-border-color: var(--sys-color-outline-variant);
+}

@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reyhaneh Jafari | SEO &amp; GEO Manager in Berlin</title>
+  <meta name="description" content="SEO & GEO Manager in Berlin. Organic growth for search engines and for AI answers.">
+  <link rel="canonical" href="https://reyhanehjafari.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Reyhaneh Jafari">
+  <meta property="og:title" content="Reyhaneh Jafari | SEO &amp; GEO Manager in Berlin">
+  <meta property="og:description" content="SEO & GEO Manager in Berlin. Organic growth for search engines and for AI answers.">
+  <meta property="og:url" content="https://reyhanehjafari.com/">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <script>
+    // Apply the saved theme before first paint (default: dark)
+    try {
+      var saved = localStorage.getItem('theme');
+      document.documentElement.dataset.theme = saved === 'light' ? 'light' : 'dark';
+    } catch (e) {
+      document.documentElement.dataset.theme = 'dark';
+    }
+  </script>
+  <script>
+    // Hero intro. While building: plays on every load. Set to false to play it once per session only (?intro still forces it)
+    try {
+      var introEveryLoad = true;
+      var forceIntro = introEveryLoad || /[?&]intro\b/.test(location.search);
+      var seenIntro = sessionStorage.getItem('heroIntro');
+      if ((forceIntro || !seenIntro) &&!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.dataset.intro = 'pending';
+        // Safety net: never leave the page hidden if the script fails
+        setTimeout(function () { document.documentElement.removeAttribute('data-intro'); }, 6000);
+      }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="vendor/lenis.css">
+  <link rel="stylesheet" href="css/tokens.css?v=202611031221">
+  <link rel="stylesheet" href="css/component-tokens.css?v=202611031221">
+  <link rel="stylesheet" href="css/styles.css?v=202611031227">
+</head>
+<body data-barba="wrapper">
+
+  <!-- Shutter Page Transition (outside the container) -->
+  <div data-transition-wrap class="transition">
+    <div data-transition-panel class="transition__panel">
+      <div data-transition-shutter class="transition__shutter"></div>
+    </div>
+  </div>
+
+  <!-- Shared header + navigation: edit js/header.js -->
+  <script src="js/header.js?v=202611031221"></script>
+
+  <!-- Everything except the navigation lives in [data-main]: it covers the menu until the toggle slides it away -->
+  <div data-main class="site-main">
+  <main data-barba="container" data-barba-namespace="home">
+
+  <!-- Hero -->
+  <section class="hero" id="top" data-hero-parallax>
+    <div class="hero__bg" data-hero-parallax-content data-hero-parallax-speed="0.1">
+      <img class="hero__bg-img" src="img/hero-bg.webp" alt="" fetchpriority="high">
+      <div class="hero__overlay"></div>
+    </div>
+
+    <div class="hero__content" data-hero-parallax-content data-hero-parallax-speed="1">
+      <!-- Falling 2D Objects (MatterJS): fills the area above the marquee, the marquee's top edge is the floor -->
+      <div class="canvas-matter is--hero">
+        <div id="canvas-target" class="canvas-matter__target" data-falling-amount="12" data-falling-size="22" data-falling-gravity="2" data-falling-restitution="0.75"></div>
+      </div>
+
+      <div class="hero__tag-mask" data-mask-reveal>
+        <p class="hero__tag">
+          <span class="hero__tag-dot" aria-hidden="true"></span>
+          <span class="hero__tag-text">SEO &amp; GEO Manager | Berlin</span>
+        </p>
+      </div>
+      <h1 class="hero__title" data-split="heading" data-split-reveal="lines"><span class="hero__title-line">Your Trusted Organic</span> <span class="hero__title-line">Growth Marketer</span></h1>
+      <p class="hero__subtitle" data-split="heading" data-split-reveal="lines">Organic growth for search engines and for AI answers.</p>
+
+      <div class="hero__buttons">
+        <div class="hero__button-mask" data-mask-reveal>
+          <a href="case-studies.html" aria-label="See Case Studies" class="btn-animate-chars is--hero">
+            <div class="btn-animate-chars__bg"></div>
+            <span data-button-animate-chars="" class="btn-animate-chars__text">See Case Studies</span>
+          </a>
+        </div>
+        <div class="hero__button-mask" data-mask-reveal>
+          <a href="#contact" data-scroll-link="" aria-label="Let’s Connect" class="btn-animate-chars is--hero is--dark">
+            <div class="btn-animate-chars__bg"></div>
+            <span data-button-animate-chars="" class="btn-animate-chars__text">Let’s Connect</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Marquee -->
+    <div data-marquee-duplicate="2" data-marquee-scroll-direction-target="" data-marquee-direction="left" data-marquee-status="normal" data-marquee-speed="15" data-marquee-scroll-speed="10" data-hero-parallax-content data-hero-parallax-speed="1" class="marquee-advanced is--hero">
+      <div data-marquee-scroll-target="" class="marquee-advanced__scroll">
+        <div data-marquee-collection-target="" class="marquee-advanced__collection">
+          <div class="marquee-advanced__item">
+            <p class="marquee__advanced__p">Technical SEO</p>
+            <svg class="marquee-advanced__star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.6 7 17 11.4 24 12C17 12.6 12.6 17 12 24C11.4 17 7 12.6 0 12C7 11.4 11.4 7 12 0Z" fill="currentColor"/></svg>
+          </div>
+          <div class="marquee-advanced__item">
+            <p class="marquee__advanced__p">GEO &amp; AI search</p>
+            <svg class="marquee-advanced__star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.6 7 17 11.4 24 12C17 12.6 12.6 17 12 24C11.4 17 7 12.6 0 12C7 11.4 11.4 7 12 0Z" fill="currentColor"/></svg>
+          </div>
+          <div class="marquee-advanced__item">
+            <p class="marquee__advanced__p">Content systems</p>
+            <svg class="marquee-advanced__star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.6 7 17 11.4 24 12C17 12.6 12.6 17 12 24C11.4 17 7 12.6 0 12C7 11.4 11.4 7 12 0Z" fill="currentColor"/></svg>
+          </div>
+          <div class="marquee-advanced__item">
+            <p class="marquee__advanced__p">Automation &amp; data</p>
+            <svg class="marquee-advanced__star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.6 7 17 11.4 24 12C17 12.6 12.6 17 12 24C11.4 17 7 12.6 0 12C7 11.4 11.4 7 12 0Z" fill="currentColor"/></svg>
+          </div>
+          <div class="marquee-advanced__item">
+            <p class="marquee__advanced__p">Agent Automation</p>
+            <svg class="marquee-advanced__star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.6 7 17 11.4 24 12C17 12.6 12.6 17 12 24C11.4 17 7 12.6 0 12C7 11.4 11.4 7 12 0Z" fill="currentColor"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="about__inner">
+      <p class="about__text" data-highlight-text>I’m Reyhaneh aka Reyna. For 7+ years I’ve built international organic growth through technical SEO, content systems and AI-powered automation — across marketplaces, legal tech and agency work in Europe, Australia and the Middle East.</p>
+    </div>
+  </section>
+  <!-- Worked with & for -->
+  <section class="logos" id="clients">
+    <div class="logos__inner">
+      <p class="logos__label">Worked with &amp; for</p>
+      <!-- First 8 logos are shown, the rest cycle in. The files are white silhouettes: the theme filter makes them black on the light theme. -->
+      <div data-logo-wall-shuffle="false" data-logo-wall-cycle-init="" class="logo-wall">
+        <div class="logo-wall__collection">
+          <div data-logo-wall-list="" class="logo-wall__list">
+        <div data-logo-wall-item="" class="logo-wall__item">
+          <div data-logo-wall-target-parent="" class="logo-wall__logo">
+            <div class="logo-wall__logo-before"></div>
+            <div data-logo-wall-target="" class="logo-wall__logo-target">
+              <img src="img/logos/helpling.png" loading="lazy" width="600" height="240" alt="Helpling" class="logo-wall__logo-img">
+            </div>
+          </div>
+        </div>
+        <div data-logo-wall-item="" class="logo-wall__item">
+          <div data-logo-wall-target-parent="" class="logo-wall__logo">
+            <div class="logo-wall__logo-before"></div>
+            <div data-logo-wall-target="" class="logo-wall__logo-target">
+              <img src="img/logos/vinted.png" loading="lazy" width="600" height="240" alt="Vinted" class="logo-wall__logo-img">
+            </div>
+          </div>
+        </div>
+        <div data-logo-wall-item="" class="logo-wall__item">
+          <div data-logo-wall-target-parent="" class="logo-wall__logo">
+            <div class="logo-wall__logo-before"></div>
+            <div data-logo-wall-target="" class="logo-wall__logo-target">
+              <img src="img/logos/legamart.png" loading="lazy" width="600" height="240" alt="Legamart" class="logo-wall__logo-img">
+            </div>
+          </div>
+        </div>
+        <div data-logo-wall-item="" class="logo-wall__item">
+          <div data-logo-wall-target-parent="" class="logo-wall__logo">
+            <div class="logo-wall__logo-before"></div>
+            <div data-logo-wall-target="" class="logo-wall__logo-target">
+              <img src="img/logos/european-search-awards.png" loading="lazy" width="600" height="240" alt="European Search Awards" class="logo-wall__logo-img">
+            </div>
+          </div>
+        </div>
+        <div data-logo-wall-item="" class="logo-wall__item">
+          <div data-logo-wall-target-parent="" class="logo-wall__logo">
+            <div class="logo-wall__logo-before"></div>
+            <div data-logo-wall-target="" class="logo-wall__logo-target">
+              <img src="img/logos/global-search-awards.png" loading="lazy" width="600" height="240" alt="Global Search Awards" class="logo-wall__logo-img">
+            </div>
+          </div>
+        </div>
+        <div data-logo-wall-item="" class="logo-wall__item">
+          <div data-logo-wall-target-parent="" class="logo-wall__logo">
+            <div class="logo-wall__logo-before"></div>
+            <div data-logo-wall-target="" class="logo-wall__logo-target">
+              <img src="img/logos/aalborg-universitet.png" loading="lazy" width="600" height="240" alt="Aalborg University" class="logo-wall__logo-img">
+            </div>
+          </div>
+        </div>
+        <div data-logo-wall-item="" class="logo-wall__item">
+          <div data-logo-wall-target-parent="" class="logo-wall__logo">
+            <div class="logo-wall__logo-before"></div>
+            <div data-logo-wall-target="" class="logo-wall__logo-target">
+              <img src="img/logos/coventry-university.png" loading="lazy" width="600" height="240" alt="Coventry University" class="logo-wall__logo-img">
+            </div>
+          </div>
+        </div>
+        <div data-logo-wall-item="" class="logo-wall__item">
+          <div data-logo-wall-target-parent="" class="logo-wall__logo">
+            <div class="logo-wall__logo-before"></div>
+            <div data-logo-wall-target="" class="logo-wall__logo-target">
+              <img src="img/logos/tss.png" loading="lazy" width="600" height="240" alt="TSS" class="logo-wall__logo-img">
+            </div>
+          </div>
+        </div>
+        <div data-logo-wall-item="" class="logo-wall__item">
+          <div data-logo-wall-target-parent="" class="logo-wall__logo">
+            <div class="logo-wall__logo-before"></div>
+            <div data-logo-wall-target="" class="logo-wall__logo-target">
+              <img src="img/logos/dont-panic.png" loading="lazy" width="600" height="240" alt="Don’t Panic" class="logo-wall__logo-img">
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Bio (little more about me), centered layout -->
+  <section class="bio" id="bio-centered">
+    <div class="bio__inner">
+      <div class="bio__intro">
+        <p class="bio__eyebrow" data-split="heading" data-split-reveal="lines">little more about me :)</p>
+        <h2 class="bio__title" data-rotating-title data-step-duration="2.25">Painter at heart,<br>engineer by training,<br><span data-rotating-words="growth marketer, SEO strategist, GEO strategist, teacher" class="rotating-text__highlight">growth marketer</span> by choice.</h2>
+      </div>
+      <div class="bio__text">
+        <p class="bio__p" data-split="heading" data-split-reveal="lines">I studied electrical telecommunications engineering, then earned a master’s in painting. That mix still shapes how I work: <span class="shimmer-text">systems thinking and data on one side, storytelling and craft on the other.</span></p>
+        <p class="bio__p" data-split="heading" data-split-reveal="lines">I started in SEO in Tehran in 2018. Growing a website from 1K to 150K monthly visits gave me confidence in my craft, and soon after I was leading a four-person SEO team at an international legal platform. In Berlin I built programmatic SEO for <span class="shimmer-text is--vinted">Vinted</span> across seven markets. Today I own SEO and GEO strategy at <span class="shimmer-text is--helpling">Helpling</span>, focusing on how people find services in both classic search and AI-generated answers.</p>
+        <p class="bio__p" data-split="heading" data-split-reveal="lines">Outside my day job I judge the <span class="shimmer-text is--awards">EU and Global Search Awards</span> and teach SEO and GEO to postgraduate students. And I still paint! a small home studio keeps my creative side busy.<a class="bio__tip" href="https://www.instagram.com/_its_reynaa_/" target="_blank" rel="noopener" aria-label="Check my Instagram" data-tooltip="Check my Instagram"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a></p>
+      </div>
+    </div>
+  </section>
+  <!-- Expertise (What I do): Sticky Features -->
+  <section class="expertise-variant is--shutter" id="expertise">
+    <div data-sticky-feature-wrap="" class="sticky-features__wrap">
+      <div class="sticky-features__scroll">
+        <header class="sticky-features__head">
+          <p class="expertise-variant__eyebrow" data-split="heading" data-split-reveal="lines">What I do</p>
+          <h2 class="expertise-variant__title" data-split="heading" data-split-reveal="lines">Where my expertise sits.</h2>
+        </header>
+        <div class="sticky-features__container">
+          <div class="sticky-feaures__col is--img">
+            <div class="sticky-features__img-collection">
+              <div class="sticky-features__img-list">
+              <div data-sticky-feature-visual-wrap="" class="sticky-features__img-item is--1">
+                <img src="img/objects/object-01__seo.svg" alt="" class="sticky-features__img is--icon">
+              </div>
+              <div data-sticky-feature-visual-wrap="" class="sticky-features__img-item is--2">
+                <img src="img/objects/object-02__geo.svg" alt="" class="sticky-features__img is--icon">
+              </div>
+              <div data-sticky-feature-visual-wrap="" class="sticky-features__img-item is--3">
+                <img src="img/objects/object-03__aeo.svg" alt="" class="sticky-features__img is--icon">
+              </div>
+              <div data-sticky-feature-visual-wrap="" class="sticky-features__img-item is--4">
+                <img src="img/objects/object-06__aio.svg" alt="" class="sticky-features__img is--icon">
+              </div>
+              </div>
+            </div>
+            <div class="sticky-features__progress-w">
+              <div class="sticky-features__progress-bar" data-sticky-feature-progress></div>
+            </div>
+          </div>
+          <div class="sticky-feaures__col">
+            <div class="sticky-features__text-collection">
+              <div class="sticky-features__text-list">
+              <div data-sticky-feature-item="" class="sticky-features__text-item">
+                <span data-sticky-feature-text="" class="sticky-features__tag">01</span>
+                <h3 data-sticky-feature-text="" class="sticky-features__heading">Technical SEO</h3>
+                <p data-sticky-feature-text="" class="sticky-features__p">Crawlability, indexation, Core Web Vitals, JS rendering, site architecture and migrations — up to 1M+ URLs.</p>
+              </div>
+              <div data-sticky-feature-item="" class="sticky-features__text-item">
+                <span data-sticky-feature-text="" class="sticky-features__tag">02</span>
+                <h3 data-sticky-feature-text="" class="sticky-features__heading">GEO &amp; AI search</h3>
+                <p data-sticky-feature-text="" class="sticky-features__p">Answer-focused content, entity and trust signals that earn mentions and citations in AI-generated answers.</p>
+              </div>
+              <div data-sticky-feature-item="" class="sticky-features__text-item">
+                <span data-sticky-feature-text="" class="sticky-features__tag">03</span>
+                <h3 data-sticky-feature-text="" class="sticky-features__heading">Content systems</h3>
+                <p data-sticky-feature-text="" class="sticky-features__p">Programmatic SEO, taxonomy, keyword mapping and internal linking for international, multi-language catalogues.</p>
+              </div>
+              <div data-sticky-feature-item="" class="sticky-features__text-item">
+                <span data-sticky-feature-text="" class="sticky-features__tag">04</span>
+                <h3 data-sticky-feature-text="" class="sticky-features__heading">Automation &amp; data</h3>
+                <p data-sticky-feature-text="" class="sticky-features__p">Python, SQL, APIs and LLM pipelines that replace manual reporting and content work; A/B testing with GA4 and VWO.</p>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Shutter Scroll Transition: closes to the dark color of the next section -->
+    <div data-shutter-scroll-transition="" data-rows="8" class="shutter-scroll-transition is--to-experience"></div>
+  </section>
+  <!-- Experience: Step-by-step Timeline on a Glass Effect panel, over parallax images -->
+  <section class="experience is--shutter" id="experience">
+    <!-- Background media (temporary stock images): sit under the glass panel so the blur shows -->
+    <div class="experience__bg" data-experience-gather>
+      <div data-click-zoom class="experience__media is--1" data-experience-parallax data-experience-parallax-speed="-50"><img class="experience__img" src="img/experience/european-search-awards-podium.jpg" alt="European Search Awards podium" loading="lazy" style="object-position: 50% 40%"></div>
+      <div data-click-zoom class="experience__media is--2" data-experience-parallax data-experience-parallax-speed="40"><img class="experience__img" src="img/experience/european-search-awards-stage.jpg" alt="European Search Awards stage" loading="lazy" style="object-position: 78% 50%"></div>
+      <div data-click-zoom class="experience__media is--3" data-experience-parallax data-experience-parallax-speed="-40"><img class="experience__img" src="img/experience/serp-conference-backdrop.avif" alt="SERP conference backdrop" loading="lazy" style="object-position: 42% 50%"></div>
+      <div data-click-zoom class="experience__media is--4" data-experience-parallax data-experience-parallax-speed="50"><img class="experience__img" src="img/experience/european-search-awards-speaker.jpg" alt="Speaking at the European Search Awards" loading="lazy" style="object-position: 50% 30%"></div>
+      <div data-click-zoom class="experience__media is--5" data-experience-parallax data-experience-parallax-speed="-50"><img class="experience__img" src="img/experience/awards-winner-stage.jpg" alt="Awards winner on stage" loading="lazy" style="object-position: 70% 60%"></div>
+      <div data-click-zoom class="experience__media is--6" data-experience-parallax data-experience-parallax-speed="50"><img class="experience__img" src="img/experience/awards-gala-table.jpg" alt="Awards gala table" loading="lazy" style="object-position: 38% 50%"></div>
+    </div>
+    <div class="experience__inner">
+      <div class="experience__panel">
+        <div class="glass-effect">
+          <div class="glass-effect__fill"></div>
+          <div class="glass-effect__fill-burn"></div>
+          <div class="glass-effect__highlight-soft"></div>
+          <div class="glass-effect__highlight-strong"></div>
+          <div class="glass-effect__edge-light"></div>
+          <div class="glass-effect__edge-dark"></div>
+          <div class="glass-effect__inner-glow"></div>
+        </div>
+        <div data-step-timeline-init data-step-timeline-activation="0.5" class="step-timeline">
+          <div class="step-timeline__header">
+            <p class="step-timeline__eyebrow" data-split="heading" data-split-reveal="lines">Experience</p>
+            <h2 class="step-timeline__h2" data-split="heading" data-split-reveal="lines">Where I’ve built organic growth.</h2>
+          </div>
+          <div class="step-timeline__wrapper">
+            <div data-step-timeline-line class="step-timeline__line">
+              <div data-step-timeline-fill class="step-timeline__fill"></div>
+            </div>
+            <div class="step-timeline__collection">
+              <div class="step-timeline__list">
+            <div data-step-timeline-item class="step-timeline__item">
+              <div data-step-timeline-marker class="step-timeline__marker"><span class="step-timeline__dot" aria-hidden="true"></span></div>
+              <div class="step-timeline__content">
+                <p class="step-timeline__date">Oct 2024 — Present</p>
+                <h3 class="step-timeline__content-h">SEO Manager</h3>
+                <p class="step-timeline__company">Helpling · Berlin</p>
+                <ul class="step-timeline__points">
+                      <li class="step-timeline__point">Own the SEO and GEO roadmap for the DE/EN domains: crawlability, Core Web Vitals, internal linking, architecture and CRO. Driving +120% YoY visibility and +40% YoY organic customer acquisition.</li>
+                      <li class="step-timeline__point">Built an end-to-end GSC → LLM → WordPress pipeline that runs content production and reporting as a supervised, agent-style workflow.</li>
+                      <li class="step-timeline__point">Keep Helpling a category leader in AI visibility: brand mentions, share of voice and citations.</li>
+                </ul>
+              </div>
+            </div>
+            <div data-step-timeline-item class="step-timeline__item">
+              <div data-step-timeline-marker class="step-timeline__marker"><span class="step-timeline__dot" aria-hidden="true"></span></div>
+              <div class="step-timeline__content">
+                <p class="step-timeline__date">Feb 2023 — Apr 2024</p>
+                <h3 class="step-timeline__content-h">Senior On-page SEO Specialist</h3>
+                <p class="step-timeline__company">Vinted · Berlin</p>
+                <ul class="step-timeline__points">
+                      <li class="step-timeline__point">Built AI-assisted programmatic SEO systems across 40K+ pages and 7 domains.</li>
+                      <li class="step-timeline__point">Mapped keywords to catalogue pages in 7 languages, resolving cannibalisation across 800+ categories.</li>
+                </ul>
+              </div>
+            </div>
+            <div data-step-timeline-item class="step-timeline__item">
+              <div data-step-timeline-marker class="step-timeline__marker"><span class="step-timeline__dot" aria-hidden="true"></span></div>
+              <div class="step-timeline__content">
+                <p class="step-timeline__date">Jan 2022 — Feb 2023</p>
+                <h3 class="step-timeline__content-h">On-page SEO Owner</h3>
+                <p class="step-timeline__company">Legamart · International legal platform</p>
+                <ul class="step-timeline__points">
+                      <li class="step-timeline__point">Led a four-person SEO team and grew organic traffic 70% month over month.</li>
+                      <li class="step-timeline__point">User-behaviour analysis lifted organic blog conversion rate by 30%.</li>
+                </ul>
+              </div>
+            </div>
+<div data-step-timeline-item class="step-timeline__item">
+              <div data-step-timeline-marker class="step-timeline__marker"><span class="step-timeline__dot" aria-hidden="true"></span></div>
+              <div class="step-timeline__content">
+                <p class="step-timeline__date">2018 — 2022</p>
+                <h3 class="step-timeline__content-h">Earlier roles</h3>
+                <p class="step-timeline__company">365 Digital Consulting (Sydney, remote), TSS (Dubai), Grandima, Nacht</p>
+                <ul class="step-timeline__points">
+                      <li class="step-timeline__point">Led a 1M+ URL migration for Bama.ir to restructure filters and control crawl budget.</li>
+                      <li class="step-timeline__point">Grew a site from 1K to 150K monthly visits through hreflang, sitemaps and crawl-budget work.</li>
+                </ul>
+              </div>
+            </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="experience__actions">
+        <!-- TODO: restore the Download CV button once the PDF exists (put it at cv/ and set the href)
+        <a href="[LINK TO CV PDF]" aria-label="Download CV" class="btn-animate-chars is--hero">
+          <div class="btn-animate-chars__bg"></div>
+          <span data-button-animate-chars="" class="btn-animate-chars__text">Download CV</span>
+        </a>
+        -->
+        <a href="https://www.linkedin.com/in/reyhanjafari" target="_blank" rel="noopener" aria-label="View LinkedIn" class="btn-animate-chars is--hero is--dark">
+          <div class="btn-animate-chars__bg"></div>
+          <span data-button-animate-chars="" class="btn-animate-chars__text">View LinkedIn</span>
+        </a>
+      </div>
+      <!-- Landing spots for the background photos: they travel here as you scroll -->
+      <div data-experience-row class="experience__row" aria-hidden="true">
+        <span data-experience-row-slot class="experience__row-slot"></span>
+        <span data-experience-row-slot class="experience__row-slot"></span>
+        <span data-experience-row-slot class="experience__row-slot"></span>
+        <span data-experience-row-slot class="experience__row-slot"></span>
+        <span data-experience-row-slot class="experience__row-slot"></span>
+        <span data-experience-row-slot class="experience__row-slot"></span>
+      </div>
+    </div>
+    <!-- Shutter Scroll Transition: closes to the color of the case studies section -->
+    <div data-shutter-scroll-transition="" data-rows="8" class="shutter-scroll-transition is--to-case-studies"></div>
+  </section>
+  <!-- Work & writing: the case studies on top, the articles below. A type tag on each card tells them apart. Cursor with Marquee Effect on hover -->
+  <section class="case-studies is--grid" id="work">
+    <div class="case-studies__inner">
+      <header class="case-studies__header is--split">
+        <div class="case-studies__heading">
+          <p class="case-studies__eyebrow" data-split="heading" data-split-reveal="lines">Case studies</p>
+          <h2 class="case-studies__title" data-split="heading" data-split-reveal="lines">The numbers behind the work.</h2>
+        </div>
+      </header>
+      <div class="case-grid is--wide">
+        <a href="case-study-cltv.html" data-cursor-marquee-text="Read the case study ✦" aria-label="Read the case study: From customer value to daily marketing activation" class="case-tile">
+          <div class="case-tile__media">
+            <!-- Temporary image: replace with the anonymised GSC chart (AI-feature impressions) -->
+            <img class="case-tile__img" src="img/case-studies/case-01-mountains.avif" alt="" loading="lazy">
+            <div class="case-tile__pills">
+              <span class="case-tile__pill is--type">Case study</span>
+              <span class="case-tile__pill">Automation</span>
+            </div>
+          </div>
+          <div class="case-tile__body">
+            <h3 class="case-tile__h">From customer value to daily marketing activation</h3>
+            <p class="case-tile__p">A daily automated workflow that turns customer value data into tiered Google Ads audiences, validated before it touches bidding.</p>
+            <div class="case-tile__meta">
+              <span class="case-tile__meta-item"><svg class="case-tile__meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="7" width="17" height="12.5" rx="2"/><path d="M8.5 7V5.5a1.5 1.5 0 0 1 1.5-1.5h4a1.5 1.5 0 0 1 1.5 1.5V7M3.5 12.5h17"/></svg>Helpling</span>
+              <span class="case-tile__meta-divider" aria-hidden="true"></span>
+              <span class="case-tile__meta-item"><svg class="case-tile__meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12h7M12.5 8.5 16 12l-3.5 3.5"/></svg>Read the case study</span>
+            </div>
+          </div>
+        </a>
+        <a href="case-study-local-seo.html" data-cursor-marquee-text="Read the case study ✦" aria-label="Read the case study: Scaling local SEO content for city landing pages" class="case-tile">
+          <div class="case-tile__media">
+            <!-- Temporary image: replace with the pipeline diagram (GSC → LLM → WordPress) -->
+            <img class="case-tile__img" src="img/case-studies/case-02-summit.webp" alt="" loading="lazy">
+            <div class="case-tile__pills">
+              <span class="case-tile__pill is--type">Case study</span>
+              <span class="case-tile__pill">Local SEO</span>
+            </div>
+          </div>
+          <div class="case-tile__body">
+            <h3 class="case-tile__h">Scaling local SEO content for city landing pages</h3>
+            <p class="case-tile__p">A verified, city-specific section added to about 330 pages with a Google Sheet, an LLM and a human approval gate.</p>
+            <div class="case-tile__meta">
+              <span class="case-tile__meta-item"><svg class="case-tile__meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="7" width="17" height="12.5" rx="2"/><path d="M8.5 7V5.5a1.5 1.5 0 0 1 1.5-1.5h4a1.5 1.5 0 0 1 1.5 1.5V7M3.5 12.5h17"/></svg>Helpling</span>
+              <span class="case-tile__meta-divider" aria-hidden="true"></span>
+              <span class="case-tile__meta-item"><svg class="case-tile__meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12h7M12.5 8.5 16 12l-3.5 3.5"/></svg>Read the case study</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Speaking, judging & teaching: Tab System with Autoplay Option (temporary photos on the left) -->
+  <section class="speaking-tabs" id="speaking">
+    <div data-tabs-autoplay-duration="5000" data-tabs="wrapper" data-tabs-autoplay="true" class="tab-layout__wrap">
+      <div class="tab-layout__col">
+        <div aria-live="polite" role="region" class="tab-visual__wrap">
+          <div id="speaking-tab1" data-tabs="visual-item" role="tabpanel" class="tab-visual__item active">
+            <div class="tab-visual__inner"><img src="img/stage-photo.avif" loading="lazy" alt="" class="tab-image" style="object-position: 50% 30%"></div>
+          </div>
+          <div id="speaking-tab2" data-tabs="visual-item" role="tabpanel" class="tab-visual__item">
+            <div class="tab-visual__inner"><img src="img/experience/global-search-awards-stage.jpg" loading="lazy" alt="Presenting on stage at the Global Search Awards" class="tab-image" style="object-position: 50% 60%"></div>
+          </div>
+          <div id="speaking-tab3" data-tabs="visual-item" role="tabpanel" class="tab-visual__item">
+            <div class="tab-visual__inner"><img src="img/experience/guest-lecture-online.jpg" loading="lazy" alt="Online guest lecture with a shared slide" class="tab-image" style="object-position: 100% 0%"></div>
+          </div>
+          <div id="speaking-tab4" data-tabs="visual-item" role="tabpanel" class="tab-visual__item">
+            <div class="tab-visual__inner"><img src="img/experience/guest-lecture-classroom.webp" loading="lazy" alt="Students working on laptops in a university classroom" class="tab-image" style="object-position: 50% 50%"></div>
+          </div>
+          <div id="speaking-tab5" data-tabs="visual-item" role="tabpanel" class="tab-visual__item">
+            <div class="tab-visual__inner"><img src="img/experience/guest-lecture-talk.webp" loading="lazy" alt="Audience listening to a talk in a seminar room" class="tab-image" style="object-position: 50% 50%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-layout__col">
+        <div class="tab-content__wrap">
+          <div class="tab-content__inner">
+            <div class="tab-content__top">
+              <p class="tab-eyebrow" data-split="heading" data-split-reveal="lines">Speaking, judging &amp; teaching</p>
+              <h2 class="tab-heading" data-split="heading" data-split-reveal="lines">Giving back to the search community.</h2>
+            </div>
+            <div role="tablist" aria-label="Speaking, judging and teaching" class="tab-content__bottom">
+              <button type="button" role="tab" data-tabs="content-item" aria-controls="speaking-tab1" aria-selected="true" class="tab-content__item active">
+                <div class="tab-content__item-main">
+                  <h3 class="content-item__heading">Judge · EU Search Awards</h3>
+                </div>
+                <div data-tabs="item-details" class="tab-content__item-detail">
+                  <div class="tab-description__spacer"></div>
+                  <p class="tab-description">Evaluating SEO campaigns, new SEO software and tools, and content strategy entries.</p>
+                </div>
+                <div class="tab-content__item-bottom">
+                  <div data-tabs="item-progress" class="tab-progress"></div>
+                </div>
+              </button>
+              <button type="button" role="tab" data-tabs="content-item" aria-controls="speaking-tab2" aria-selected="false" class="tab-content__item">
+                <div class="tab-content__item-main">
+                  <h3 class="content-item__heading">Judge · Global Search Awards</h3>
+                </div>
+                <div data-tabs="item-details" class="tab-content__item-detail">
+                  <div class="tab-description__spacer"></div>
+                  <p class="tab-description">Evaluating SEO campaigns, new SEO software and tools, and content strategy entries.</p>
+                </div>
+                <div class="tab-content__item-bottom">
+                  <div data-tabs="item-progress" class="tab-progress"></div>
+                </div>
+              </button>
+              <button type="button" role="tab" data-tabs="content-item" aria-controls="speaking-tab3" aria-selected="false" class="tab-content__item">
+                <div class="tab-content__item-main">
+                  <h3 class="content-item__heading">Guest lecturer · Coventry University</h3>
+                </div>
+                <div data-tabs="item-details" class="tab-content__item-detail">
+                  <div class="tab-description__spacer"></div>
+                  <p class="tab-description">Teaching SEO and GEO to postgraduate students across several modules.</p>
+                </div>
+                <div class="tab-content__item-bottom">
+                  <div data-tabs="item-progress" class="tab-progress"></div>
+                </div>
+              </button>
+              <button type="button" role="tab" data-tabs="content-item" aria-controls="speaking-tab4" aria-selected="false" class="tab-content__item">
+                <div class="tab-content__item-main">
+                  <h3 class="content-item__heading">Guest lecturer · Aalborg University</h3>
+                </div>
+                <div data-tabs="item-details" class="tab-content__item-detail">
+                  <div class="tab-description__spacer"></div>
+                  <p class="tab-description">Teaching SEO and GEO to postgraduate students across several modules.</p>
+                </div>
+                <div class="tab-content__item-bottom">
+                  <div data-tabs="item-progress" class="tab-progress"></div>
+                </div>
+              </button>
+              <button type="button" role="tab" data-tabs="content-item" aria-controls="speaking-tab5" aria-selected="false" class="tab-content__item">
+                <div class="tab-content__item-main">
+                  <h3 class="content-item__heading">Guest lecturer · FH Erfurt</h3>
+                </div>
+                <div data-tabs="item-details" class="tab-content__item-detail">
+                  <div class="tab-description__spacer"></div>
+                  <p class="tab-description">Teaching SEO and GEO to postgraduate students across several modules.</p>
+                </div>
+                <div class="tab-content__item-bottom">
+                  <div data-tabs="item-progress" class="tab-progress"></div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommendations: Centered Looping Slider (LinkedIn recommendations, excerpted) -->
+  <section class="reco" id="recommendations">
+    <div class="reco__inner">
+      <header class="reco__header">
+        <p class="reco__eyebrow" data-split="heading" data-split-reveal="lines">Recommendations</p>
+        <h2 class="reco__title" data-split="heading" data-split-reveal="lines">What colleagues say.</h2>
+      </header>
+    </div>
+    <div data-slider-autoplay-duration="5" aria-label="Recommendations slider" data-centered-slider="wrapper" data-slider-autoplay="true" class="centered-slider-group">
+      <div class="centered-slider-content">
+        <ul role="tablist" class="centered-slider-bullet__list">
+          <li class="centered-slider-bullet__item"><button data-centered-slider="bullet" role="tab" aria-selected="false" aria-label="Show recommendation from Peter Okunev" class="centered-slider-bullet"><img src="img/testimonials/peter-okunev.avif" alt="" width="180" height="180" loading="lazy" class="centered-slider-bullet__img"></button></li>
+          <li class="centered-slider-bullet__item"><button data-centered-slider="bullet" role="tab" aria-selected="false" aria-label="Show recommendation from Sia Nasri" class="centered-slider-bullet"><img src="img/testimonials/sia-nasri.avif" alt="" width="180" height="180" loading="lazy" class="centered-slider-bullet__img"></button></li>
+          <li class="centered-slider-bullet__item"><button data-centered-slider="bullet" role="tab" aria-selected="false" aria-label="Show recommendation from Laura Ramonaityte" class="centered-slider-bullet"><img src="img/testimonials/laura-ramonaityte.avif" alt="" width="180" height="180" loading="lazy" class="centered-slider-bullet__img"></button></li>
+          <li class="centered-slider-bullet__item"><button data-centered-slider="bullet" role="tab" aria-selected="false" aria-label="Show recommendation from Sneha Solanki" class="centered-slider-bullet"><img src="img/testimonials/sneha-solanki.avif" alt="" width="180" height="180" loading="lazy" class="centered-slider-bullet__img"></button></li>
+          <li class="centered-slider-bullet__item"><button data-centered-slider="bullet" role="tab" aria-selected="false" aria-label="Show recommendation from Ehsan Hakimi" class="centered-slider-bullet"><img src="img/testimonials/ehsan-hakimi.avif" alt="" width="180" height="180" loading="lazy" class="centered-slider-bullet__img"></button></li>
+        </ul>
+      </div>
+      <div class="centered-slider-row">
+        <div aria-label="slides" data-centered-slider="list" role="group" class="centered-slider-list">
+        <div data-centered-slider="slide" class="centered-slider-slide">
+          <div class="centered-slider-slide__inner">
+            <p class="slide-demo__description">“She's a spectacular specialist in on-page SEO and an exemplary teammate. Her dedication, know-how, and collaborative spirit make her a significant contribution to any team.”</p>
+            <div class="slide-demo__details"><span class="slide-demo__avatar"><img src="img/testimonials/peter-okunev.avif" alt="" width="180" height="180" loading="lazy" class="slide-demo__img"></span><span class="slide-demo__meta"><span class="slide-demo__eyebrow">Peter Okunev</span><span class="slide-demo__role">Marketing Tech, Vinted</span></span></div>
+          </div>
+        </div>
+        <div data-centered-slider="slide" class="centered-slider-slide">
+          <div class="centered-slider-slide__inner">
+            <p class="slide-demo__description">“Her well-disciplined approach to SEO ensures meticulous attention to detail and consistent execution of best practices. This was evident in more than 2x SEO growth in LegaMart.”</p>
+            <div class="slide-demo__details"><span class="slide-demo__avatar"><img src="img/testimonials/sia-nasri.avif" alt="" width="180" height="180" loading="lazy" class="slide-demo__img"></span><span class="slide-demo__meta"><span class="slide-demo__eyebrow">Sia Nasri</span><span class="slide-demo__role">Technical Marketing Manager, LegaMart</span></span></div>
+          </div>
+        </div>
+        <div data-centered-slider="slide" class="centered-slider-slide">
+          <div class="centered-slider-slide__inner">
+            <p class="slide-demo__description">“Reyhaneh is an experienced on-page SEO specialist and a team player. I strongly recommend Reyhaneh for SEO related positions if you wish to grow your business presence on Google successfully.”</p>
+            <div class="slide-demo__details"><span class="slide-demo__avatar"><img src="img/testimonials/laura-ramonaityte.avif" alt="" width="180" height="180" loading="lazy" class="slide-demo__img"></span><span class="slide-demo__meta"><span class="slide-demo__eyebrow">Laura Ramonaityte</span><span class="slide-demo__role">Head of Growth for B2B brands, NordSecurity</span></span></div>
+          </div>
+        </div>
+        <div data-centered-slider="slide" class="centered-slider-slide">
+          <div class="centered-slider-slide__inner">
+            <p class="slide-demo__description">“She's a fantastic SEO specialist who strives to achieve results that exceed expectations. Whenever you have the pleasure to work with Reyhan, you can be sure that you are working with a true professional.”</p>
+            <div class="slide-demo__details"><span class="slide-demo__avatar"><img src="img/testimonials/sneha-solanki.avif" alt="" width="180" height="180" loading="lazy" class="slide-demo__img"></span><span class="slide-demo__meta"><span class="slide-demo__eyebrow">Sneha Solanki</span><span class="slide-demo__role">Commercial &amp; Tech Lawyer</span></span></div>
+          </div>
+        </div>
+        <div data-centered-slider="slide" class="centered-slider-slide">
+          <div class="centered-slider-slide__inner">
+            <p class="slide-demo__description">“Reyhaneh is the most organised person in our team. She is a talented SEO expert, but her soft skills such as collaboration and communication make her unique in every team.”</p>
+            <div class="slide-demo__details"><span class="slide-demo__avatar"><img src="img/testimonials/ehsan-hakimi.avif" alt="" width="180" height="180" loading="lazy" class="slide-demo__img"></span><span class="slide-demo__meta"><span class="slide-demo__eyebrow">Ehsan Hakimi</span><span class="slide-demo__role">AI &amp; Technology Transformation Leader</span></span></div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="centered-slider-content">
+        <div class="centered-slider-buttons">
+          <button aria-label="previous slide" data-centered-slider="prev-button" class="centered-slider-button is--prev"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none" class="slider-button-arrow"><path d="M14 18.5 20.5 12 14 5.5M3.5 12h16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+          <button aria-label="next slide" data-centered-slider="next-button" class="centered-slider-button"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none" class="slider-button-arrow"><path d="M14 18.5 20.5 12 14 5.5M3.5 12h16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Cursor with Marquee Effect: one cursor for the page, text comes from [data-cursor-marquee-text] -->
+  <div data-cursor-marquee-status="" class="cursor-marquee" aria-hidden="true">
+    <div class="cursor-marquee__card">
+      <span data-cursor-marquee-text-target="" class="cursor-marquee__text-span">Read the case study</span>
+      <span data-cursor-marquee-text-target="" class="cursor-marquee__text-span is--duplicate">Read the case study</span>
+    </div>
+  </div>
+  <!-- Contact + footer: Footer Parallax Effect. The footer rises into place as you reach the end; the dark layer fades away. -->
+  <div data-footer-parallax="" class="footer-wrap" id="contact">
+    <footer data-footer-parallax-inner="" class="footer">
+      <!-- Falling 2D Objects (MatterJS): the footer is the box, the images pile up on its bottom edge and can be dragged -->
+      <div class="canvas-matter is--footer">
+        <div class="canvas-matter__target" data-falling-textures="img/footer/footer-img-01.svg,img/footer/footer-img-02.svg,img/footer/footer-img-03.svg,img/footer/footer-img-04.svg,img/footer/footer-img-05.svg,img/footer/footer-img-06.svg,img/footer/footer-img-07.svg" data-falling-amount="7" data-falling-size="24" data-falling-gravity="1.6" data-falling-restitution="0.5"></div>
+      </div>
+      <div class="footer__top is--center">
+        <div class="footer__center">
+          <h2 class="footer__title" data-split="heading" data-split-reveal="lines">Let’s Connect</h2>
+          <!-- The painting: swap the placeholder for <img class="footer__art-img" src="img/footer/painting.webp" alt="..."> -->
+          <div class="footer__art">
+            <!-- Mascot: Face Follow Cursor (Mascot) -->
+            <div class="mascot" data-face="8">
+              <svg class="mascot__svg" xmlns="http://www.w3.org/2000/svg" viewBox="5 0 270 292" role="img" aria-label="Illustration of Reyhaneh Jafari waving"><path class="mascot__f-l mascot__s-d" d="M274.21 49.47C274.21 43.35 269.21 38.38 263.04 38.38L15.91 38.38C9.74 38.38 4.74 43.35 4.74 49.47L4.74 60.12L274.21 60.12L274.21 49.47" stroke-width="1.336" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-a mascot__s-d" d="M4.74 60.12L4.74 232.57C4.74 238.69 9.74 243.66 15.91 243.66L263.04 243.66C269.21 243.66 274.21 238.69 274.21 232.57L274.21 60.12L4.74 60.12" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-d" d="M27.88 50.24C27.88 53.41 25.29 55.98 22.10 55.98C18.90 55.98 16.31 53.41 16.31 50.24C16.31 47.07 18.90 44.50 22.10 44.50C25.29 44.50 27.88 47.07 27.88 50.24"/><path class="mascot__f-d" d="M45.24 50.24C45.24 53.41 42.65 55.98 39.45 55.98C36.26 55.98 33.67 53.41 33.67 50.24C33.67 47.07 36.26 44.50 39.45 44.50C42.65 44.50 45.24 47.07 45.24 50.24"/><path class="mascot__f-d" d="M62.59 50.24C62.59 53.41 60.00 55.98 56.81 55.98C53.61 55.98 51.02 53.41 51.02 50.24C51.02 47.07 53.61 44.50 56.81 44.50C60.00 44.50 62.59 47.07 62.59 50.24"/><path class="mascot__f-d" d="M95.46 120.83C105.75 104.65 116.22 90.36 126.33 72.31C129.82 65.83 134.31 62.18 139.33 60.54C139.33 60.54 144.01 23.34 134.16 17.67C105.51 14.21 89.89 34.23 89.89 34.23C82.06 42.38 75.78 52.81 71.83 72.65C69.81 82.79 74.76 99.35 73.08 110.13C70.89 124.21 61.87 122.74 61.16 140.26C60.89 146.84 66.79 162.50 67.69 167.68C70.02 181.25 64.41 184.54 64.41 184.54C67.87 186.11 74.18 188.62 80.44 188.54L81.56 177.39C83.43 180.87 84.15 188.44 84.15 188.44C88.42 188.51 96.53 189.07 100.83 188.58C103.21 184.41 104.36 179.71 103.93 175.16C103.84 156.16 83.49 137.16 95.46 120.83"/><path class="mascot__f-d" d="M230.87 152.36C230.79 147.11 234.95 134.81 233.46 128.39C229.51 111.32 218.30 105.79 213.52 92.36C209.86 82.08 213.08 69.34 209.21 59.75C201.63 40.99 193.84 31.45 184.31 25.36C157.01 7.94 134.16 17.67 134.16 17.67L140.61 60.17C154.00 56.76 170.76 66.88 182.41 76.55C191.47 83.30 187.87 98.84 190.61 109.99C191.14 115.65 199.85 118.63 203.73 123.97C211.83 138.41 200.22 158.51 208.33 172.96C209.00 174.85 209.89 176.53 210.93 178.07C214.47 177.51 221.79 175.63 225.15 174.64C227.07 174.07 223.10 164.10 223.10 164.10C224.75 163.44 228.65 173.25 230.21 172.45C232.14 171.46 235.56 169.54 237.32 168.31C237.32 168.31 231.10 166.13 230.87 152.36"/><path class="mascot__f-d" d="M203.73 123.97C199.85 118.63 191.14 115.64 190.61 109.99C187.87 98.84 191.47 83.30 182.40 76.55C170.76 66.88 154.00 56.76 140.61 60.17L142.79 90.39L139.33 60.54C134.31 62.17 129.82 65.83 126.33 72.30C116.22 90.36 105.75 104.65 95.46 120.83C83.49 137.16 103.84 156.16 103.93 175.16C104.36 179.71 103.21 184.41 100.83 188.58C123.24 186.06 144.58 177.20 150.68 174.50C158.02 176.21 185.89 182.03 210.93 178.07C209.89 176.53 209.00 174.85 208.33 172.96C200.22 158.51 211.83 138.41 203.73 123.97"/><path class="mascot__s-d" d="M74.41 184.91C72.09 179.79 69.78 174.67 67.47 169.55C64.64 163.29 61.79 156.97 60.21 150.23C58.63 143.49 58.39 136.21 60.73 129.73C63.67 121.58 70.41 115.29 72.56 106.88C75.23 96.37 70.15 85.55 69.23 74.71C67.89 58.90 76.82 32.85 103.25 23.49C117.42 18.46 120.70 31.00 131.82 41.64" fill="none" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__s-d" d="M134.16 17.67C148.38 12.07 172.80 12.40 186.98 24.09C199.37 34.30 212.54 53.36 211.80 70.38C211.61 74.76 210.92 79.21 211.79 83.51C214.52 97.05 230.61 102.69 234.45 115.91C236.17 121.85 235.05 128.25 233.61 134.21C232.17 140.17 230.41 146.21 230.90 152.40C231.39 158.59 234.84 165.08 240.25 166.45" fill="none" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M120.21 136.34C120.21 136.34 149.73 132.35 168.08 134.88L170.99 145.42L128.33 150.10L120.21 136.34" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M179.31 162.40C176.06 152.85 172.57 146.95 172.57 146.95C161.15 141.02 152.64 142.76 149.91 142.67C149.55 142.64 149.19 142.60 148.82 142.57C144.19 142.01 119.29 139.43 98.95 145.06L98.31 152.52C121.03 169.60 153.25 172.71 179.31 162.40" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M98.31 152.52L93.67 206.88L90.52 243.66L180.65 243.66C183.52 232.63 184.25 203.52 184.25 203.52C186.06 187.40 182.83 172.75 179.31 162.40C153.25 172.71 121.03 169.60 98.31 152.52" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M130.65 151.17C130.50 150.88 130.44 150.71 130.44 150.71L129.16 137.36L128.87 134.29C137.79 137.36 151.78 137.63 158.60 137.55L158.59 148.38" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__s-d" d="M130.65 151.17C130.50 150.88 130.44 150.71 130.44 150.71L129.16 137.36L128.87 134.29C137.79 137.36 151.78 137.63 158.60 137.55L158.59 148.38" fill="none" stroke-width="1.029" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-d" d="M127.89 124.04L158.61 124.72L158.60 134.11L158.60 137.55C151.78 137.63 137.79 137.36 128.87 134.29L127.89 124.04"/><path class="mascot__f-l mascot__s-d" d="M177.41 98.76L181.16 78.68C181.16 78.68 198.47 70.48 201.12 88.79C203.78 107.09 184.55 109.83 177.41 98.76" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-d" d="M183.79 99.24C183.84 99.23 183.89 99.22 183.94 99.19C184.12 99.09 184.18 98.86 184.08 98.69C184.03 98.60 179.27 90.13 185.05 85.44C187.08 83.79 189.17 83.08 191.26 83.34C194.88 83.77 197.33 86.96 197.35 86.99C197.48 87.15 197.71 87.18 197.87 87.06C198.03 86.94 198.07 86.70 197.94 86.54C197.84 86.40 195.29 83.08 191.36 82.60C189.06 82.32 186.78 83.08 184.58 84.86C178.31 89.95 183.38 98.96 183.43 99.05C183.51 99.18 183.65 99.25 183.79 99.24"/><path class="mascot__f-d" d="M192.19 91.18C192.30 91.17 192.41 91.11 192.47 91.00C192.58 90.83 192.52 90.60 192.35 90.49C192.28 90.45 185.68 86.52 181.52 91.55C181.39 91.70 181.41 91.94 181.57 92.07C181.73 92.20 181.96 92.18 182.09 92.02C185.84 87.48 191.90 91.09 191.96 91.13C192.04 91.17 192.11 91.19 192.19 91.18"/><path class="mascot__f-l mascot__s-d" d="M184.26 116.29C181.47 115.54 179.58 113.47 179.03 110.64L180.03 109.15C180.39 109.10 180.53 109.65 180.63 110.13C181.04 112.28 182.61 113.97 184.73 114.54C186.19 114.94 187.72 114.74 189.04 113.98C190.36 113.23 191.30 112.00 191.69 110.54C192.40 107.94 191.16 105.19 188.77 103.98C188.55 103.87 188.39 103.69 188.31 103.46C188.24 103.23 188.26 102.98 188.36 102.77C188.47 102.55 188.66 102.39 188.89 102.31C189.12 102.24 189.37 102.26 189.58 102.37C192.74 103.95 194.37 107.59 193.44 111.01C192.92 112.94 191.68 114.56 189.94 115.55C189.00 116.09 187.98 116.42 186.91 116.52C186.02 116.60 185.13 116.53 184.26 116.29" stroke-width="0.726" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M179.85 40.73C179.85 40.73 188.55 58.36 191.05 85.05C193.01 105.87 178.30 127.82 153.02 131.86C129.27 135.65 103.54 128.36 92.95 95.54C82.35 62.72 90.40 35.04 120.11 24.74C149.83 14.44 171.69 20.52 179.85 40.73" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-d" d="M86.69 95.64C86.69 95.64 101.63 96.19 103.59 78.62C105.03 65.66 117.29 58.47 126.91 59.04C137.17 59.65 144.58 47.62 143.68 40.64L143.56 20.24C143.56 20.24 94.76 20.75 86.96 47.39C79.17 74.03 77.87 95.79 77.87 95.79L86.69 95.64"/><path class="mascot__f-d" d="M200.08 84.54C200.08 84.54 187.99 87.29 182.79 70.39C178.96 57.93 170.68 53.12 161.33 55.47C151.36 57.98 139.36 48.11 138.94 41.09L135.27 21.02C135.27 21.02 175.71 13.15 188.33 37.87C200.95 62.60 205.25 84.51 205.25 84.51L200.08 84.54"/><g data-face-target=""><path class="mascot__f-d mascot__s-d" d="M149.99 105.72C144.36 106.25 143.27 101.63 143.26 101.58C143.21 101.38 143.34 101.18 143.54 101.14C143.73 101.09 143.93 101.22 143.98 101.42C144.02 101.60 145.09 105.96 150.94 104.83C151.14 104.81 151.34 104.93 151.38 105.13C151.41 105.33 151.28 105.52 151.08 105.56C150.70 105.63 150.34 105.69 149.99 105.72" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-d" d="M113.41 78.46C113.41 78.46 109.44 75.54 116.80 70.74C124.17 65.94 126.98 66.58 128.43 68.50C129.75 70.25 128.24 73.20 124.04 75.81C119.01 78.95 115.57 80.14 113.41 78.46"/><path class="mascot__f-d" d="M129.43 89.49C129.67 92.00 128.19 94.19 126.13 94.38C124.08 94.57 122.22 92.70 121.98 90.19C121.75 87.69 123.22 85.50 125.28 85.30C127.34 85.11 129.20 86.99 129.43 89.49"/><path class="mascot__f-d" d="M176.72 72.51C176.72 72.51 180.08 68.91 171.94 65.56C163.81 62.22 161.17 63.37 160.11 65.52C159.13 67.49 161.17 70.11 165.78 71.89C171.30 74.04 174.90 74.57 176.72 72.51"/><path class="mascot__f-d" d="M161.39 86.49C161.63 89.00 163.49 90.88 165.54 90.68C167.60 90.49 169.08 88.30 168.84 85.79C168.61 83.29 166.75 81.41 164.69 81.60C162.63 81.80 161.16 83.99 161.39 86.49"/><path class="mascot__f-d mascot__s-d" d="M150.41 96.70C150.27 96.71 150.13 96.65 150.05 96.52C149.95 96.34 150.01 96.11 150.19 96.01C150.22 95.99 153.04 94.35 154.10 91.59C154.93 89.42 154.32 86.34 152.82 85.12C151.91 84.39 150.79 84.43 149.55 85.23C149.51 85.26 149.45 85.30 149.37 85.36C145.08 88.42 142.92 87.43 141.87 86.06C139.93 83.54 139.41 62.29 139.35 59.87C139.35 59.67 139.52 59.50 139.72 59.49C139.92 59.49 140.09 59.65 140.09 59.85C140.24 66.35 140.94 83.64 142.46 85.61C143.70 87.22 145.88 86.94 148.94 84.76C149.03 84.69 149.10 84.64 149.15 84.61C150.66 83.64 152.12 83.61 153.28 84.55C155.03 85.97 155.74 89.38 154.79 91.86C153.63 94.87 150.68 96.58 150.56 96.65C150.51 96.68 150.46 96.70 150.41 96.70" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/></g><path class="mascot__f-l mascot__s-d" d="M97.68 89.23C97.68 89.23 79.14 84.39 79.94 102.87C80.63 119.04 95.58 120.38 102.62 112.29" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M101.13 127.28C100.06 127.38 99.00 127.25 97.97 126.89C96.08 126.24 94.56 124.88 93.69 123.08C92.14 119.89 93.06 116.02 95.87 113.87C96.06 113.72 96.30 113.66 96.54 113.69C96.78 113.72 97.00 113.85 97.14 114.04C97.29 114.23 97.35 114.47 97.32 114.71C97.29 114.95 97.16 115.16 96.97 115.31C94.84 116.94 94.15 119.87 95.32 122.29C95.98 123.66 97.13 124.68 98.57 125.18C100.00 125.68 101.54 125.59 102.91 124.93C104.88 123.98 106.11 122.02 106.11 119.83C106.12 119.34 106.16 118.78 106.52 118.76L107.78 120.03C107.77 122.92 106.29 125.30 103.70 126.56C102.88 126.95 102.02 127.19 101.13 127.28" stroke-width="0.726" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-d" d="M98.91 109.91C98.86 109.92 98.81 109.91 98.76 109.89C98.56 109.83 98.46 109.62 98.53 109.42C98.56 109.33 101.66 100.12 95.11 96.59C92.81 95.35 90.62 95.04 88.61 95.68C85.14 96.78 83.33 100.36 83.31 100.40C83.22 100.58 82.99 100.66 82.81 100.57C82.63 100.48 82.55 100.25 82.64 100.07C82.72 99.91 84.61 96.18 88.38 94.98C90.59 94.27 92.97 94.59 95.46 95.94C102.57 99.77 99.26 109.57 99.23 109.67C99.18 109.81 99.05 109.90 98.91 109.91"/><path class="mascot__f-d" d="M89.16 103.56C89.05 103.57 88.93 103.53 88.85 103.44C88.71 103.28 88.72 103.05 88.88 102.91C88.93 102.86 94.69 97.77 99.71 101.93C99.87 102.06 99.89 102.30 99.76 102.45C99.63 102.61 99.40 102.63 99.24 102.50C94.71 98.74 89.43 103.42 89.37 103.46C89.31 103.52 89.24 103.55 89.16 103.56"/><path class="mascot__s-d" d="M145.25 174.00C145.25 174.00 118.64 152.99 130.10 146.39" fill="none" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__s-d" d="M145.63 173.99C145.63 173.99 170.38 150.81 158.40 145.20" fill="none" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-d" d="M148.54 174.67C148.62 176.47 147.22 177.99 145.42 178.07C143.62 178.14 142.10 176.74 142.02 174.94C141.95 173.14 143.34 171.62 145.14 171.55C146.95 171.47 148.47 172.87 148.54 174.67"/><path class="mascot__f-l mascot__s-d" d="M135.56 153.60C135.56 153.60 128.87 229.74 121.49 266.74C121.49 266.74 92.72 266.01 75.62 260.03C75.62 260.03 85.98 198.14 89.22 184.90C94.30 164.11 98.94 145.06 98.94 145.06C98.94 145.06 111.58 141.48 119.70 141.49" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M135.56 153.60L129.77 169.72C129.77 169.72 112.64 154.47 108.36 144.48L120.21 136.34C120.21 136.34 127.57 147.67 135.56 153.60" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M245.44 115.17C258.02 101.49 263.05 79.19 263.05 79.19C275.05 69.16 280.20 50.06 278.59 49.27C275.92 47.95 271.78 59.77 271.78 59.77C271.78 59.77 277.16 43.55 274.04 43.01C270.36 42.36 266.55 56.70 266.55 56.70C266.55 56.70 270.98 37.85 268.12 38.39C266.15 38.77 263.06 46.49 261.32 51.29C260.60 53.48 260.00 55.08 260.00 55.08C260.00 55.08 260.52 53.49 261.32 51.29C262.95 46.30 265.20 38.19 262.35 38.80C258.26 39.67 253.14 58.56 253.14 58.56C253.14 58.56 249.44 43.72 246.25 49.37C243.07 55.03 243.25 69.18 243.25 69.18C243.25 69.18 237.67 78.67 224.04 99.85L240.24 114.42" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__s-d" d="M256.65 59.07C259.82 62.49 261.63 67.13 261.62 71.79" fill="none" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M258.31 105.39C258.31 105.39 246.25 101.32 227.27 85.93L232.86 82.90L258.56 100.51L258.31 105.39" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M161.37 204.46C186.20 187.51 198.17 191.41 224.57 160.29C237.68 144.83 258.56 97.77 258.56 97.77C258.56 97.77 248.27 85.56 231.57 83.24C231.57 83.24 209.74 115.30 200.35 123.87C192.44 131.10 165.71 145.99 165.71 145.99" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M258.31 105.39C258.31 105.39 261.83 98.55 262.52 97.56C263.21 96.57 245.51 79.56 232.77 78.48L227.27 85.93C227.27 85.93 244.28 87.77 258.31 105.39" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M180.74 141.67L160.04 150.17L155.76 243.63L201.36 243.66C201.36 243.66 200.64 201.56 192.17 169.72" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M160.04 150.17L167.54 165.55C167.54 165.55 177.58 152.08 180.74 141.67L168.08 134.88C168.08 134.88 167.33 143.39 160.04 150.17" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M93.98 284.15C95.89 280.93 83.84 272.28 83.84 272.28C83.84 272.28 99.89 283.12 100.40 280.25C100.75 278.28 94.63 272.65 90.75 269.31C88.96 267.87 87.68 266.74 87.68 266.74C87.68 266.74 88.98 267.79 90.75 269.31C94.84 272.61 101.63 277.59 102.07 274.72C102.70 270.59 86.86 259.09 86.86 259.09C86.86 259.09 102.05 260.89 97.89 255.91C93.74 250.93 80.05 246.94 80.05 246.94C80.05 246.94 76.74 236.54 65.34 213.65L70.48 220.58L86.33 201.63C79.79 190.80 77.18 172.95 77.07 166.45C73.90 168.17 65.67 178.79 52.05 192.08C48.44 195.60 39.96 206.04 38.35 209.42C35.55 215.33 35.89 222.23 38.82 228.08C47.14 244.70 63.66 261.90 63.66 261.90C68.78 276.68 85.20 287.40 86.51 286.18C88.70 284.15 79.12 276.09 79.12 276.09C79.12 276.09 92.36 286.87 93.98 284.15" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M90.75 269.31C88.98 267.79 87.68 266.74 87.68 266.74C87.68 266.74 88.96 267.87 90.75 269.31" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M41.95 241.10C41.95 241.10 51.28 232.45 73.86 223.12L73.86 229.47L46.12 243.66L41.95 241.10" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M102.09 144.26C81.98 149.70 67.69 167.68 51.90 185.55C38.48 200.74 27.57 208.11 38.39 231.55C41.70 238.54 46.12 243.66 46.12 243.66C46.12 243.66 64.17 241.74 74.17 228.18L70.48 220.58L97.89 190.44" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M41.95 241.10C41.95 241.10 46.28 247.46 46.82 248.54C47.36 249.62 70.75 242.18 77.78 231.50L73.86 223.12C73.86 223.12 64.13 237.18 41.95 241.10" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <div data-mask-reveal>
+            <a href="https://www.linkedin.com/in/reyhanjafari" target="_blank" rel="noopener" aria-label="Connect on LinkedIn" class="btn-animate-chars is--hero">
+              <div class="btn-animate-chars__bg"></div>
+              <span data-button-animate-chars="" class="btn-animate-chars__text">Connect on LinkedIn ↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Reyhaneh Jafari · Berlin, Germany</p>
+        <nav class="footer__links" aria-label="Footer">
+          <a data-underline-link="" data-back-to-top="" href="#top" class="footer__a is--small">Back to top ↑</a>
+        </nav>
+      </div>
+    </footer>
+    <div data-footer-parallax-dark="" class="footer-wrap__dark"></div>
+  </div>
+  </main>
+  </div>
+
+  <script src="vendor/barba.umd.min.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/CustomEase.min.js"></script>
+  <script src="vendor/Draggable.min.js"></script>
+  <script src="vendor/smooothy.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/InertiaPlugin.min.js"></script>
+  <script src="vendor/SplitText.min.js"></script>
+  <script src="vendor/matter.min.js"></script>
+  <script src="js/main.js?v=202611031221"></script>
+  <script src="js/site.js?v=202611031221"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/reyhydlw/public_html/
+    - /bin/cp -R *.html css js img fonts vendor .htaccess robots.txt sitemap.xml $DEPLOYPATH

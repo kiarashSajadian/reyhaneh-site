@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design System</title>
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <script>
+    // Apply the saved theme before first paint (default: dark)
+    try {
+      var saved = localStorage.getItem('theme');
+      document.documentElement.dataset.theme = saved === 'light' ? 'light' : 'dark';
+    } catch (e) {
+      document.documentElement.dataset.theme = 'dark';
+    }
+  </script>
+  <link rel="stylesheet" href="vendor/lenis.css">
+  <link rel="stylesheet" href="css/tokens.css?v=202611031221">
+  <link rel="stylesheet" href="css/component-tokens.css?v=202611031221">
+  <link rel="stylesheet" href="css/styles.css?v=202611031227">
+</head>
+<body data-barba="wrapper">
+
+  <!-- Shutter Page Transition (outside the container) -->
+  <div data-transition-wrap class="transition">
+    <div data-transition-panel class="transition__panel">
+      <div data-transition-shutter class="transition__shutter"></div>
+    </div>
+  </div>
+
+  <!-- Theme toggle (outside the container, persists between pages) -->
+  <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+    <svg class="theme-toggle__icon is--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" fill="currentColor"/></svg>
+    <svg class="theme-toggle__icon is--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+
+  <main data-barba="container" data-barba-namespace="design-system">
+    <div class="ds">
+      <header class="ds-header">
+        <p class="type-label-large ds-muted">Internal reference</p>
+        <h1 class="type-display-medium">Design System</h1>
+        <p class="type-body-large ds-muted">Structure follows Material Design 3: reference tokens, system tokens, component tokens. Use the theme button (top right) to switch between light and dark, values below update live.</p>
+      </header>
+
+      <section class="ds-section" id="structure">
+        <h2 class="ds-head type-headline-medium">Structure</h2>
+        <div class="ds-table">
+          <div class="ds-table__row"><span class="type-label-large">ref</span><span class="type-body-medium">Reference tokens. Raw values: palette tones, typeface, weights. Never used in components. <code>--ref-palette-neutral-10</code></span></div>
+          <div class="ds-table__row"><span class="type-label-large">sys</span><span class="type-body-medium">System tokens. Meaning: color roles per theme, typescale, shape, spacing, layout, motion, state layers. <code>--sys-color-primary</code></span></div>
+          <div class="ds-table__row"><span class="type-label-large">comp</span><span class="type-body-medium">Component tokens. Per component, pointing at system tokens. <code>--comp-button-container-shape</code></span></div>
+        </div>
+        <p class="type-body-medium ds-muted">Files: <code>css/tokens.css</code> (ref + sys) and <code>css/component-tokens.css</code> (comp). Colors come in pairs, a role and its “on” role for text and icons placed on it. Type, shape and component-internal sizes are in em. Spacing and layout are in rem. Components may only use sys and comp tokens.</p>
+      </section>
+
+      <section class="ds-section" id="color">
+        <h2 class="ds-head type-headline-medium">Color</h2>
+        <p class="type-body-medium ds-muted">Each swatch shows the role, its current value, and the matching “on” role as the text color.</p>
+      <h3 class="ds-subhead type-title-medium">Primary</h3>
+      <div class="ds-grid">
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-primary); --ds-fg: var(--sys-color-on-primary);">
+          <span class="ds-swatch__name">primary</span>
+          <span data-token-value="--sys-color-primary"></span>
+          <span class="ds-swatch__on"><span>on-primary</span><span data-token-value="--sys-color-on-primary"></span></span>
+        </div>
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-primary-container); --ds-fg: var(--sys-color-on-primary-container);">
+          <span class="ds-swatch__name">primary-container</span>
+          <span data-token-value="--sys-color-primary-container"></span>
+          <span class="ds-swatch__on"><span>on-primary-container</span><span data-token-value="--sys-color-on-primary-container"></span></span>
+        </div>
+      </div>
+      <h3 class="ds-subhead type-title-medium">Secondary</h3>
+      <div class="ds-grid">
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-secondary); --ds-fg: var(--sys-color-on-secondary);">
+          <span class="ds-swatch__name">secondary</span>
+          <span data-token-value="--sys-color-secondary"></span>
+          <span class="ds-swatch__on"><span>on-secondary</span><span data-token-value="--sys-color-on-secondary"></span></span>
+        </div>
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-secondary-container); --ds-fg: var(--sys-color-on-secondary-container);">
+          <span class="ds-swatch__name">secondary-container</span>
+          <span data-token-value="--sys-color-secondary-container"></span>
+          <span class="ds-swatch__on"><span>on-secondary-container</span><span data-token-value="--sys-color-on-secondary-container"></span></span>
+        </div>
+      </div>
+      <h3 class="ds-subhead type-title-medium">Accent</h3>
+      <div class="ds-grid">
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-accent); --ds-fg: var(--sys-color-on-accent);">
+          <span class="ds-swatch__name">accent</span>
+          <span data-token-value="--sys-color-accent"></span>
+          <span class="ds-swatch__on"><span>on-accent</span><span data-token-value="--sys-color-on-accent"></span></span>
+        </div>
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-accent-container); --ds-fg: var(--sys-color-on-accent-container);">
+          <span class="ds-swatch__name">accent-container</span>
+          <span data-token-value="--sys-color-accent-container"></span>
+          <span class="ds-swatch__on"><span>on-accent-container</span><span data-token-value="--sys-color-on-accent-container"></span></span>
+        </div>
+      </div>
+      <h3 class="ds-subhead type-title-medium">Error</h3>
+      <div class="ds-grid">
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-error); --ds-fg: var(--sys-color-on-error);">
+          <span class="ds-swatch__name">error</span>
+          <span data-token-value="--sys-color-error"></span>
+          <span class="ds-swatch__on"><span>on-error</span><span data-token-value="--sys-color-on-error"></span></span>
+        </div>
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-error-container); --ds-fg: var(--sys-color-on-error-container);">
+          <span class="ds-swatch__name">error-container</span>
+          <span data-token-value="--sys-color-error-container"></span>
+          <span class="ds-swatch__on"><span>on-error-container</span><span data-token-value="--sys-color-on-error-container"></span></span>
+        </div>
+      </div>
+      <h3 class="ds-subhead type-title-medium">Background and surface</h3>
+      <div class="ds-grid">
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-background); --ds-fg: var(--sys-color-on-background);">
+          <span class="ds-swatch__name">background</span>
+          <span data-token-value="--sys-color-background"></span>
+          <span class="ds-swatch__on"><span>on-background</span><span data-token-value="--sys-color-on-background"></span></span>
+        </div>
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-surface); --ds-fg: var(--sys-color-on-surface);">
+          <span class="ds-swatch__name">surface</span>
+          <span data-token-value="--sys-color-surface"></span>
+          <span class="ds-swatch__on"><span>on-surface</span><span data-token-value="--sys-color-on-surface"></span></span>
+        </div>
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-surface-container-lowest); --ds-fg: var(--sys-color-on-surface);">
+          <span class="ds-swatch__name">surface-container-lowest</span>
+          <span data-token-value="--sys-color-surface-container-lowest"></span>
+          <span class="ds-swatch__on"><span>on-surface</span><span data-token-value="--sys-color-on-surface"></span></span>
+        </div>
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-surface-container-low); --ds-fg: var(--sys-color-on-surface);">
+          <span class="ds-swatch__name">surface-container-low</span>
+          <span data-token-value="--sys-color-surface-container-low"></span>
+          <span class="ds-swatch__on"><span>on-surface</span><span data-token-value="--sys-color-on-surface"></span></span>
+        </div>
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-surface-container); --ds-fg: var(--sys-color-on-surface);">
+          <span class="ds-swatch__name">surface-container</span>
+          <span data-token-value="--sys-color-surface-container"></span>
+          <span class="ds-swatch__on"><span>on-surface</span><span data-token-value="--sys-color-on-surface"></span></span>
+        </div>
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-surface-container-high); --ds-fg: var(--sys-color-on-surface);">
+          <span class="ds-swatch__name">surface-container-high</span>
+          <span data-token-value="--sys-color-surface-container-high"></span>
+          <span class="ds-swatch__on"><span>on-surface</span><span data-token-value="--sys-color-on-surface"></span></span>
+        </div>
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-surface-container-highest); --ds-fg: var(--sys-color-on-surface);">
+          <span class="ds-swatch__name">surface-container-highest</span>
+          <span data-token-value="--sys-color-surface-container-highest"></span>
+          <span class="ds-swatch__on"><span>on-surface</span><span data-token-value="--sys-color-on-surface"></span></span>
+        </div>
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-surface); --ds-fg: var(--sys-color-on-surface-variant);">
+          <span class="ds-swatch__name">surface</span>
+          <span data-token-value="--sys-color-surface"></span>
+          <span class="ds-swatch__on"><span>on-surface-variant</span><span data-token-value="--sys-color-on-surface-variant"></span></span>
+        </div>
+      </div>
+      <h3 class="ds-subhead type-title-medium">Outline and inverse</h3>
+      <div class="ds-grid">
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-outline); --ds-fg: var(--sys-color-background);">
+          <span class="ds-swatch__name">outline</span>
+          <span data-token-value="--sys-color-outline"></span>
+          <span class="ds-swatch__on"><span>background</span><span data-token-value="--sys-color-background"></span></span>
+        </div>
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-outline-variant); --ds-fg: var(--sys-color-on-surface);">
+          <span class="ds-swatch__name">outline-variant</span>
+          <span data-token-value="--sys-color-outline-variant"></span>
+          <span class="ds-swatch__on"><span>on-surface</span><span data-token-value="--sys-color-on-surface"></span></span>
+        </div>
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-inverse-surface); --ds-fg: var(--sys-color-inverse-on-surface);">
+          <span class="ds-swatch__name">inverse-surface</span>
+          <span data-token-value="--sys-color-inverse-surface"></span>
+          <span class="ds-swatch__on"><span>inverse-on-surface</span><span data-token-value="--sys-color-inverse-on-surface"></span></span>
+        </div>
+      </div>
+      <h3 class="ds-subhead type-title-medium">Media (extended): for content on a photo</h3>
+      <div class="ds-grid ds-media-stage">
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-media-primary); --ds-fg: var(--sys-color-on-media-primary);">
+          <span class="ds-swatch__name">media-primary</span>
+          <span data-token-value="--sys-color-media-primary"></span>
+          <span class="ds-swatch__on"><span>on-media-primary</span><span data-token-value="--sys-color-on-media-primary"></span></span>
+        </div>
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-media-container); --ds-fg: var(--sys-color-on-media-container);">
+          <span class="ds-swatch__name">media-container</span>
+          <span data-token-value="--sys-color-media-container"></span>
+          <span class="ds-swatch__on"><span>on-media-container</span><span data-token-value="--sys-color-on-media-container"></span></span>
+        </div>
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-media-scrim); --ds-fg: var(--sys-color-on-media);">
+          <span class="ds-swatch__name">media-scrim</span>
+          <span data-token-value="--sys-color-media-scrim"></span>
+          <span class="ds-swatch__on"><span>on-media</span><span data-token-value="--sys-color-on-media"></span></span>
+        </div>
+        <div class="ds-swatch" style="--ds-bg: var(--sys-color-media-scrim); --ds-fg: var(--sys-color-on-media-variant);">
+          <span class="ds-swatch__name">media-scrim</span>
+          <span data-token-value="--sys-color-media-scrim"></span>
+          <span class="ds-swatch__on"><span>on-media-variant</span><span data-token-value="--sys-color-on-media-variant"></span></span>
+        </div>
+      </div>
+      </section>
+
+      <section class="ds-section" id="typography">
+        <h2 class="ds-head type-headline-medium">Typography</h2>
+        <p class="type-body-medium ds-muted">Typeface Manrope. 15 roles. Apply with a utility class such as <code>.type-body-large</code>, or with the tokens <code>font: var(--sys-typescale-body-large-font)</code>.</p>
+      <div class="ds-type-row">
+        <div class="ds-type-row__meta">
+          <span class="type-label-large">Display large</span>
+          <span class="type-body-small ds-muted"><span data-token-value="--sys-typescale-display-large-font"></span> · tracking <span data-token-value="--sys-typescale-display-large-tracking"></span></span>
+        </div>
+        <p class="ds-type-row__sample type-display-large">Your trusted organic growth</p>
+      </div>
+      <div class="ds-type-row">
+        <div class="ds-type-row__meta">
+          <span class="type-label-large">Display medium</span>
+          <span class="type-body-small ds-muted"><span data-token-value="--sys-typescale-display-medium-font"></span> · tracking <span data-token-value="--sys-typescale-display-medium-tracking"></span></span>
+        </div>
+        <p class="ds-type-row__sample type-display-medium">Your trusted organic growth</p>
+      </div>
+      <div class="ds-type-row">
+        <div class="ds-type-row__meta">
+          <span class="type-label-large">Display small</span>
+          <span class="type-body-small ds-muted"><span data-token-value="--sys-typescale-display-small-font"></span> · tracking <span data-token-value="--sys-typescale-display-small-tracking"></span></span>
+        </div>
+        <p class="ds-type-row__sample type-display-small">Your trusted organic growth</p>
+      </div>
+      <div class="ds-type-row">
+        <div class="ds-type-row__meta">
+          <span class="type-label-large">Headline large</span>
+          <span class="type-body-small ds-muted"><span data-token-value="--sys-typescale-headline-large-font"></span> · tracking <span data-token-value="--sys-typescale-headline-large-tracking"></span></span>
+        </div>
+        <p class="ds-type-row__sample type-headline-large">I’m Reyhaneh aka Reyna. For 7+ years I’ve built international organic growth.</p>
+      </div>
+      <div class="ds-type-row">
+        <div class="ds-type-row__meta">
+          <span class="type-label-large">Headline medium</span>
+          <span class="type-body-small ds-muted"><span data-token-value="--sys-typescale-headline-medium-font"></span> · tracking <span data-token-value="--sys-typescale-headline-medium-tracking"></span></span>
+        </div>
+        <p class="ds-type-row__sample type-headline-medium">Technical SEO, GEO & AI search</p>
+      </div>
+      <div class="ds-type-row">
+        <div class="ds-type-row__meta">
+          <span class="type-label-large">Headline small</span>
+          <span class="type-body-small ds-muted"><span data-token-value="--sys-typescale-headline-small-font"></span> · tracking <span data-token-value="--sys-typescale-headline-small-tracking"></span></span>
+        </div>
+        <p class="ds-type-row__sample type-headline-small">Technical SEO, GEO & AI search</p>
+      </div>
+      <div class="ds-type-row">
+        <div class="ds-type-row__meta">
+          <span class="type-label-large">Title large</span>
+          <span class="type-body-small ds-muted"><span data-token-value="--sys-typescale-title-large-font"></span> · tracking <span data-token-value="--sys-typescale-title-large-tracking"></span></span>
+        </div>
+        <p class="ds-type-row__sample type-title-large">Content systems and automation</p>
+      </div>
+      <div class="ds-type-row">
+        <div class="ds-type-row__meta">
+          <span class="type-label-large">Title medium</span>
+          <span class="type-body-small ds-muted"><span data-token-value="--sys-typescale-title-medium-font"></span> · tracking <span data-token-value="--sys-typescale-title-medium-tracking"></span></span>
+        </div>
+        <p class="ds-type-row__sample type-title-medium">Content systems and automation</p>
+      </div>
+      <div class="ds-type-row">
+        <div class="ds-type-row__meta">
+          <span class="type-label-large">Title small</span>
+          <span class="type-body-small ds-muted"><span data-token-value="--sys-typescale-title-small-font"></span> · tracking <span data-token-value="--sys-typescale-title-small-tracking"></span></span>
+        </div>
+        <p class="ds-type-row__sample type-title-small">Content systems and automation</p>
+      </div>
+      <div class="ds-type-row">
+        <div class="ds-type-row__meta">
+          <span class="type-label-large">Body large</span>
+          <span class="type-body-small ds-muted"><span data-token-value="--sys-typescale-body-large-font"></span> · tracking <span data-token-value="--sys-typescale-body-large-tracking"></span></span>
+        </div>
+        <p class="ds-type-row__sample type-body-large">Organic growth for search engines and for AI answers.</p>
+      </div>
+      <div class="ds-type-row">
+        <div class="ds-type-row__meta">
+          <span class="type-label-large">Body medium</span>
+          <span class="type-body-small ds-muted"><span data-token-value="--sys-typescale-body-medium-font"></span> · tracking <span data-token-value="--sys-typescale-body-medium-tracking"></span></span>
+        </div>
+        <p class="ds-type-row__sample type-body-medium">Organic growth for search engines and for AI answers.</p>
+      </div>
+      <div class="ds-type-row">
+        <div class="ds-type-row__meta">
+          <span class="type-label-large">Body small</span>
+          <span class="type-body-small ds-muted"><span data-token-value="--sys-typescale-body-small-font"></span> · tracking <span data-token-value="--sys-typescale-body-small-tracking"></span></span>
+        </div>
+        <p class="ds-type-row__sample type-body-small">Organic growth for search engines and for AI answers.</p>
+      </div>
+      <div class="ds-type-row">
+        <div class="ds-type-row__meta">
+          <span class="type-label-large">Label large</span>
+          <span class="type-body-small ds-muted"><span data-token-value="--sys-typescale-label-large-font"></span> · tracking <span data-token-value="--sys-typescale-label-large-tracking"></span></span>
+        </div>
+        <p class="ds-type-row__sample type-label-large">See Case Studies</p>
+      </div>
+      <div class="ds-type-row">
+        <div class="ds-type-row__meta">
+          <span class="type-label-large">Label medium</span>
+          <span class="type-body-small ds-muted"><span data-token-value="--sys-typescale-label-medium-font"></span> · tracking <span data-token-value="--sys-typescale-label-medium-tracking"></span></span>
+        </div>
+        <p class="ds-type-row__sample type-label-medium">SEO & GEO Manager | Berlin</p>
+      </div>
+      <div class="ds-type-row">
+        <div class="ds-type-row__meta">
+          <span class="type-label-large">Label small</span>
+          <span class="type-body-small ds-muted"><span data-token-value="--sys-typescale-label-small-font"></span> · tracking <span data-token-value="--sys-typescale-label-small-tracking"></span></span>
+        </div>
+        <p class="ds-type-row__sample type-label-small">SEO & GEO Manager | Berlin</p>
+      </div>
+      </section>
+
+      <section class="ds-section" id="shape">
+        <h2 class="ds-head type-headline-medium">Shape</h2>
+        <div class="ds-grid ds-grid--small">
+        <div class="ds-shape">
+          <div class="ds-shape__box" style="border-radius: var(--sys-shape-corner-none);"></div>
+          <span class="type-label-large">none</span>
+          <span data-token-value="--sys-shape-corner-none"></span>
+        </div>
+        <div class="ds-shape">
+          <div class="ds-shape__box" style="border-radius: var(--sys-shape-corner-extra-small);"></div>
+          <span class="type-label-large">extra-small</span>
+          <span data-token-value="--sys-shape-corner-extra-small"></span>
+        </div>
+        <div class="ds-shape">
+          <div class="ds-shape__box" style="border-radius: var(--sys-shape-corner-small);"></div>
+          <span class="type-label-large">small</span>
+          <span data-token-value="--sys-shape-corner-small"></span>
+        </div>
+        <div class="ds-shape">
+          <div class="ds-shape__box" style="border-radius: var(--sys-shape-corner-medium);"></div>
+          <span class="type-label-large">medium</span>
+          <span data-token-value="--sys-shape-corner-medium"></span>
+        </div>
+        <div class="ds-shape">
+          <div class="ds-shape__box" style="border-radius: var(--sys-shape-corner-large);"></div>
+          <span class="type-label-large">large</span>
+          <span data-token-value="--sys-shape-corner-large"></span>
+        </div>
+        <div class="ds-shape">
+          <div class="ds-shape__box" style="border-radius: var(--sys-shape-corner-extra-large);"></div>
+          <span class="type-label-large">extra-large</span>
+          <span data-token-value="--sys-shape-corner-extra-large"></span>
+        </div>
+        <div class="ds-shape">
+          <div class="ds-shape__box" style="border-radius: var(--sys-shape-corner-full);"></div>
+          <span class="type-label-large">full</span>
+          <span data-token-value="--sys-shape-corner-full"></span>
+        </div>
+        </div>
+      </section>
+
+      <section class="ds-section" id="spacing">
+        <h2 class="ds-head type-headline-medium">Spacing and layout</h2>
+        <p class="type-body-medium ds-muted">4px grid in rem. The number is the step, <code>spacing-4</code> is 4 × 4px. Page gutter is <code>--sys-layout-margin</code>, reading column is <code>--sys-layout-content-width</code> (<span data-token-value="--sys-layout-content-width"></span>).</p>
+        <div class="ds-list">
+        <div class="ds-space">
+          <span class="type-label-large">spacing-1</span>
+          <span data-token-value="--sys-spacing-1"></span>
+          <div class="ds-space__bar" style="width: var(--sys-spacing-1);"></div>
+        </div>
+        <div class="ds-space">
+          <span class="type-label-large">spacing-2</span>
+          <span data-token-value="--sys-spacing-2"></span>
+          <div class="ds-space__bar" style="width: var(--sys-spacing-2);"></div>
+        </div>
+        <div class="ds-space">
+          <span class="type-label-large">spacing-3</span>
+          <span data-token-value="--sys-spacing-3"></span>
+          <div class="ds-space__bar" style="width: var(--sys-spacing-3);"></div>
+        </div>
+        <div class="ds-space">
+          <span class="type-label-large">spacing-4</span>
+          <span data-token-value="--sys-spacing-4"></span>
+          <div class="ds-space__bar" style="width: var(--sys-spacing-4);"></div>
+        </div>
+        <div class="ds-space">
+          <span class="type-label-large">spacing-5</span>
+          <span data-token-value="--sys-spacing-5"></span>
+          <div class="ds-space__bar" style="width: var(--sys-spacing-5);"></div>
+        </div>
+        <div class="ds-space">
+          <span class="type-label-large">spacing-6</span>
+          <span data-token-value="--sys-spacing-6"></span>
+          <div class="ds-space__bar" style="width: var(--sys-spacing-6);"></div>
+        </div>
+        <div class="ds-space">
+          <span class="type-label-large">spacing-8</span>
+          <span data-token-value="--sys-spacing-8"></span>
+          <div class="ds-space__bar" style="width: var(--sys-spacing-8);"></div>
+        </div>
+        <div class="ds-space">
+          <span class="type-label-large">spacing-10</span>
+          <span data-token-value="--sys-spacing-10"></span>
+          <div class="ds-space__bar" style="width: var(--sys-spacing-10);"></div>
+        </div>
+        <div class="ds-space">
+          <span class="type-label-large">spacing-12</span>
+          <span data-token-value="--sys-spacing-12"></span>
+          <div class="ds-space__bar" style="width: var(--sys-spacing-12);"></div>
+        </div>
+        <div class="ds-space">
+          <span class="type-label-large">spacing-16</span>
+          <span data-token-value="--sys-spacing-16"></span>
+          <div class="ds-space__bar" style="width: var(--sys-spacing-16);"></div>
+        </div>
+        <div class="ds-space">
+          <span class="type-label-large">spacing-20</span>
+          <span data-token-value="--sys-spacing-20"></span>
+          <div class="ds-space__bar" style="width: var(--sys-spacing-20);"></div>
+        </div>
+        <div class="ds-space">
+          <span class="type-label-large">spacing-32</span>
+          <span data-token-value="--sys-spacing-32"></span>
+          <div class="ds-space__bar" style="width: var(--sys-spacing-32);"></div>
+        </div>
+        </div>
+      </section>
+
+      <section class="ds-section" id="motion">
+        <h2 class="ds-head type-headline-medium">Motion</h2>
+        <p class="type-body-medium ds-muted">Hover a row to play the easing. Every custom easing has a GSAP ease of the same name in <code>site.js</code>. Elastic and bounce are multi-point curves, so they use CSS <code>linear()</code>. “brand” is the default site ease and points at osmo.</p>
+        <div class="ds-list">
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-osmo);">
+          <span class="type-label-large">osmo</span>
+          <span data-token-value="--sys-motion-easing-osmo"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-energy);">
+          <span class="type-label-large">energy</span>
+          <span data-token-value="--sys-motion-easing-energy"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-smooth);">
+          <span class="type-label-large">smooth</span>
+          <span data-token-value="--sys-motion-easing-smooth"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-punch);">
+          <span class="type-label-large">punch</span>
+          <span data-token-value="--sys-motion-easing-punch"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-relaxed);">
+          <span class="type-label-large">relaxed</span>
+          <span data-token-value="--sys-motion-easing-relaxed"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-expo-in-out);">
+          <span class="type-label-large">expo-in-out</span>
+          <span data-token-value="--sys-motion-easing-expo-in-out"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-jump);">
+          <span class="type-label-large">jump</span>
+          <span data-token-value="--sys-motion-easing-jump"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-pop);">
+          <span class="type-label-large">pop</span>
+          <span data-token-value="--sys-motion-easing-pop"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-anticipate);">
+          <span class="type-label-large">anticipate</span>
+          <span data-token-value="--sys-motion-easing-anticipate"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-fade);">
+          <span class="type-label-large">fade</span>
+          <span data-token-value="--sys-motion-easing-fade"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-elastic);">
+          <span class="type-label-large">elastic</span>
+          <span data-token-value="--sys-motion-easing-elastic"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-bounce);">
+          <span class="type-label-large">bounce</span>
+          <span data-token-value="--sys-motion-easing-bounce"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-brand);">
+          <span class="type-label-large">brand</span>
+          <span data-token-value="--sys-motion-easing-brand"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-standard);">
+          <span class="type-label-large">standard</span>
+          <span data-token-value="--sys-motion-easing-standard"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-standard-decelerate);">
+          <span class="type-label-large">standard-decelerate</span>
+          <span data-token-value="--sys-motion-easing-standard-decelerate"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-standard-accelerate);">
+          <span class="type-label-large">standard-accelerate</span>
+          <span data-token-value="--sys-motion-easing-standard-accelerate"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-emphasized);">
+          <span class="type-label-large">emphasized</span>
+          <span data-token-value="--sys-motion-easing-emphasized"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-emphasized-decelerate);">
+          <span class="type-label-large">emphasized-decelerate</span>
+          <span data-token-value="--sys-motion-easing-emphasized-decelerate"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        <div class="ds-easing" style="--ds-ease: var(--sys-motion-easing-emphasized-accelerate);">
+          <span class="type-label-large">emphasized-accelerate</span>
+          <span data-token-value="--sys-motion-easing-emphasized-accelerate"></span>
+          <div class="ds-easing__track"><div class="ds-easing__dot"></div></div>
+        </div>
+        </div>
+        <h3 class="ds-subhead type-title-medium">Duration</h3>
+        <div class="ds-grid ds-grid--small">
+        <div class="ds-duration">
+          <span class="type-label-large">short1</span>
+          <span data-token-value="--sys-motion-duration-short1"></span>
+        </div>
+        <div class="ds-duration">
+          <span class="type-label-large">short2</span>
+          <span data-token-value="--sys-motion-duration-short2"></span>
+        </div>
+        <div class="ds-duration">
+          <span class="type-label-large">short3</span>
+          <span data-token-value="--sys-motion-duration-short3"></span>
+        </div>
+        <div class="ds-duration">
+          <span class="type-label-large">short4</span>
+          <span data-token-value="--sys-motion-duration-short4"></span>
+        </div>
+        <div class="ds-duration">
+          <span class="type-label-large">medium1</span>
+          <span data-token-value="--sys-motion-duration-medium1"></span>
+        </div>
+        <div class="ds-duration">
+          <span class="type-label-large">medium2</span>
+          <span data-token-value="--sys-motion-duration-medium2"></span>
+        </div>
+        <div class="ds-duration">
+          <span class="type-label-large">medium3</span>
+          <span data-token-value="--sys-motion-duration-medium3"></span>
+        </div>
+        <div class="ds-duration">
+          <span class="type-label-large">medium4</span>
+          <span data-token-value="--sys-motion-duration-medium4"></span>
+        </div>
+        <div class="ds-duration">
+          <span class="type-label-large">long1</span>
+          <span data-token-value="--sys-motion-duration-long1"></span>
+        </div>
+        <div class="ds-duration">
+          <span class="type-label-large">long2</span>
+          <span data-token-value="--sys-motion-duration-long2"></span>
+        </div>
+        <div class="ds-duration">
+          <span class="type-label-large">long3</span>
+          <span data-token-value="--sys-motion-duration-long3"></span>
+        </div>
+        <div class="ds-duration">
+          <span class="type-label-large">long4</span>
+          <span data-token-value="--sys-motion-duration-long4"></span>
+        </div>
+        <div class="ds-duration">
+          <span class="type-label-large">extra-long1</span>
+          <span data-token-value="--sys-motion-duration-extra-long1"></span>
+        </div>
+        <div class="ds-duration">
+          <span class="type-label-large">extra-long2</span>
+          <span data-token-value="--sys-motion-duration-extra-long2"></span>
+        </div>
+        </div>
+      </section>
+
+      <section class="ds-section" id="state">
+        <h2 class="ds-head type-headline-medium">State layers</h2>
+        <p class="type-body-medium ds-muted">Opacity of the “on” color laid over a container for each interaction state.</p>
+        <div class="ds-grid ds-grid--small">
+        <div class="ds-state" style="--ds-state: var(--sys-state-hover-opacity);">
+          <div class="ds-state__box"></div>
+          <span class="type-label-large">hover</span>
+          <span data-token-value="--sys-state-hover-opacity"></span>
+        </div>
+        <div class="ds-state" style="--ds-state: var(--sys-state-focus-opacity);">
+          <div class="ds-state__box"></div>
+          <span class="type-label-large">focus</span>
+          <span data-token-value="--sys-state-focus-opacity"></span>
+        </div>
+        <div class="ds-state" style="--ds-state: var(--sys-state-pressed-opacity);">
+          <div class="ds-state__box"></div>
+          <span class="type-label-large">pressed</span>
+          <span data-token-value="--sys-state-pressed-opacity"></span>
+        </div>
+        <div class="ds-state" style="--ds-state: var(--sys-state-dragged-opacity);">
+          <div class="ds-state__box"></div>
+          <span class="type-label-large">dragged</span>
+          <span data-token-value="--sys-state-dragged-opacity"></span>
+        </div>
+        <div class="ds-state" style="--ds-state: var(--sys-state-disabled-opacity);">
+          <div class="ds-state__box"></div>
+          <span class="type-label-large">disabled</span>
+          <span data-token-value="--sys-state-disabled-opacity"></span>
+        </div>
+        </div>
+      </section>
+
+      <section class="ds-section" id="components">
+        <h2 class="ds-head type-headline-medium">Components</h2>
+        <p class="type-body-medium ds-muted">Shown on a photo, as used in the hero. Marquee, shutter transition, theme toggle and the About text are documented by their <code>--comp-*</code> tokens in <code>component-tokens.css</code>.</p>
+        <div class="ds-media-stage ds-components">
+          <p class="hero__tag"><span class="hero__tag-dot" aria-hidden="true"></span>Tag</p>
+          <div class="hero__buttons">
+            <a href="#components" aria-label="Filled button" class="btn-animate-chars is--hero">
+              <div class="btn-animate-chars__bg"></div>
+              <span data-button-animate-chars="" class="btn-animate-chars__text">Filled button</span>
+            </a>
+            <a href="#components" aria-label="Tonal button" class="btn-animate-chars is--hero is--dark">
+              <div class="btn-animate-chars__bg"></div>
+              <span data-button-animate-chars="" class="btn-animate-chars__text">Tonal button</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="vendor/barba.umd.min.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/CustomEase.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/SplitText.min.js"></script>
+  <script src="vendor/matter.min.js"></script>
+  <script src="js/main.js?v=202611031221"></script>
+  <script src="js/site.js?v=202611031221"></script>
+</body>
+</html>

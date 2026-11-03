@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>From Customer Value Analysis to Daily Marketing Activation | Reyhaneh Jafari</title>
+  <meta name="description" content="How customer value data became daily, tiered Google Ads audiences: a Python and Cloud Run workflow, validated before it touches bidding.">
+  <link rel="canonical" href="https://reyhanehjafari.com/case-study-cltv.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Reyhaneh Jafari">
+  <meta property="og:title" content="From Customer Value Analysis to Daily Marketing Activation | Reyhaneh Jafari">
+  <meta property="og:description" content="How customer value data became daily, tiered Google Ads audiences: a Python and Cloud Run workflow, validated before it touches bidding.">
+  <meta property="og:url" content="https://reyhanehjafari.com/case-study-cltv.html">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <script>
+    // Apply the saved theme before first paint (default: dark)
+    try {
+      var saved = localStorage.getItem('theme');
+      document.documentElement.dataset.theme = saved === 'light' ? 'light' : 'dark';
+    } catch (e) {
+      document.documentElement.dataset.theme = 'dark';
+    }
+  </script>
+  <link rel="stylesheet" href="vendor/lenis.css">
+  <link rel="stylesheet" href="css/tokens.css?v=202611031221">
+  <link rel="stylesheet" href="css/component-tokens.css?v=202611031221">
+  <link rel="stylesheet" href="css/styles.css?v=202611031227">
+</head>
+<body data-barba="wrapper">
+
+  <!-- Shutter Page Transition (outside the container) -->
+  <div data-transition-wrap class="transition">
+    <div data-transition-panel class="transition__panel">
+      <div data-transition-shutter class="transition__shutter"></div>
+    </div>
+  </div>
+
+  <!-- Shared header + navigation: edit js/header.js -->
+  <script src="js/header.js?v=202611031221"></script>
+
+  <!-- Everything except the navigation lives in [data-main]: it covers the menu until the toggle slides it away -->
+  <div data-main class="site-main">
+  <main data-barba="container" data-barba-namespace="case-study-cltv">
+
+    <section class="cs-head" id="top">
+      <div class="cs-head__inner">
+        <div data-mask-reveal><a href="case-studies.html" class="cs-back">← All case studies</a></div>
+        <div data-mask-reveal><div class="cs-head__pills"><span class="cs-head__pill is--type">Case study</span><span class="cs-head__pill">Automation</span></div></div>
+        <h1 class="cs-head__title" data-split="heading" data-split-reveal="lines">From Customer Value Analysis to Daily Marketing Activation</h1>
+        <p class="cs-head__text" data-split="heading" data-split-reveal="lines">How we turned customer value data into automated, actionable audiences for Google Ads.</p>
+        <div data-mask-reveal><dl class="cs-head__meta"><div class="cs-head__meta-item"><dt class="cs-head__meta-k">Client</dt><dd class="cs-head__meta-v">Helpling</dd></div><div class="cs-head__meta-item"><dt class="cs-head__meta-k">Author</dt><dd class="cs-head__meta-v">Reyhaneh Jafari</dd></div><div class="cs-head__meta-item"><dt class="cs-head__meta-k">Read</dt><dd class="cs-head__meta-v">8 min</dd></div></dl></div>
+      </div>
+    </section>
+
+    <section data-mask-reveal class="cs-stack" aria-label="Tools used">
+      <div class="cs-stack__box">
+        <p class="cs-stack__label">Tools used</p>
+        <ul class="cs-stack__list">
+          <li class="cs-stack__item">Tableau</li>
+          <li class="cs-stack__item">Python (pandas)</li>
+          <li class="cs-stack__item">Google Cloud Run and Scheduler</li>
+          <li class="cs-stack__item">Google Sheets</li>
+          <li class="cs-stack__item">Google Ads Customer Match</li>
+        </ul>
+      </div>
+    </section>
+
+    <section data-mask-reveal class="cs-cover">
+      <img class="cs-cover__img" src="img/case-studies/case-01-mountains.avif" alt="" loading="eager">
+    </section>
+
+    <!-- Table of Contents for Article (Osmo Supply): the list is built from the headings below -->
+    <section class="toc-section">
+      <div data-toc-offset="100" data-toc-wrap data-toc-levels="h2,h3" class="toc-layout is--rails">
+        <aside class="toc-share" aria-label="Share this case study">
+          <a data-share="linkedin" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="Share on LinkedIn" class="cs-share__btn"><svg class="cs-share__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 9.5v8M6.5 6.2v.1M10.5 17.5v-8M10.5 12.5c0-1.7 1.2-3 3-3s3 1.3 3 3v5"/><rect x="3.5" y="3.5" width="17" height="17" rx="3"/></svg></a>
+          <a data-share="email" href="mailto:" aria-label="Share by email" class="cs-share__btn"><svg class="cs-share__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="m4 7.5 8 6 8-6"/></svg></a>
+          <button data-share="copy" type="button" aria-label="Copy link" class="cs-share__btn"><svg class="cs-share__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></button>
+        </aside>
+
+        <div data-toc-content class="toc-article">
+<h2>The challenge</h2>
+<p>Customer value is useful only when it changes what the business does next.</p>
+<p>We had customer data and a clear interest in value-based marketing, but the process of turning that data into updated marketing audiences involved several separate steps. Data needed to be refreshed, customers needed to be classified, upload files needed to be prepared, and the final audiences needed to be delivered to Google Ads.</p>
+<p>That created three practical risks:</p>
+<ul role="list">
+<li>The data could become outdated before it was activated.</li>
+<li>Customer classifications could be applied inconsistently.</li>
+<li>Manual file handling could make the process slow and difficult to scale.</li>
+</ul>
+<p>The objective was not simply to calculate customer lifetime value. The objective was to create a reliable path from customer data to daily marketing action.</p>
+<h2>The objective</h2>
+<p>We built an automated workflow that could:</p>
+<ul role="list">
+<li>Read the latest customer data from Tableau.</li>
+<li>Prepare and standardise the data.</li>
+<li>Apply customer value and behaviour rules.</li>
+<li>Assign each customer to an actionable tier.</li>
+<li>Create Google Ads-ready upload files.</li>
+<li>Refresh the outputs every day.</li>
+<li>Provide enough monitoring to validate the process before using the audiences for bidding.</li>
+</ul>
+<p>This approach separated data quality and audience validation from campaign performance testing. That distinction was important: a successful upload does not automatically prove that a segment will improve ROAS.</p>
+<h2>The methodology</h2>
+<p>The workflow combined customer value with purchase behaviour. Rather than treating all customers as one audience, we created segments designed to support different marketing decisions.</p>
+<h3>High-value customers</h3>
+<p>Recurring customers with the strongest value signal. These customers were candidates for retention, loyalty, and carefully controlled expansion strategies.</p>
+<h3>Mid-value customers</h3>
+<p>Recurring customers with meaningful value but further room for development. This segment could support retention and progression strategies.</p>
+<h3>One-off customers</h3>
+<p>Customers with recorded value but no recurring purchase pattern. These customers were relevant for second-purchase and reactivation initiatives.</p>
+<h3>Churned customers</h3>
+<p>Customers with no recent value and no recent activity. This group could be used for controlled reactivation tests, rather than being treated as one undifferentiated inactive audience.</p>
+<p>The original classification used 90-day lifetime value and customer behaviour. The thresholds were based on the observed distribution of customer value, including median and upper-quartile reference points, rather than arbitrary business cut-offs. The methodology later evolved toward GMV-based fields for relevant time windows so the segmentation could align more directly with commercial outcomes.</p>
+<h2>A light technical view</h2>
+<p>The data-processing layer was built in Python using a tabular, customer-level data model. Each row represented one customer, while columns represented identifiers, purchase behaviour, and value signals used for segmentation.</p>
+<p>The main structure was a pandas DataFrame with fields such as:</p>
+<ul role="list">
+<li>Customer identifier and hashed contact information for audience activation.</li>
+<li>Purchase frequency or recurrence indicator.</li>
+<li>Recent activity and event counts.</li>
+<li>90-day value metrics.</li>
+<li>GMV windows such as one-month weekly, one-month biweekly, and one-to-three-month value.</li>
+<li>Final customer tier.</li>
+</ul>
+<p>The transformation pattern was deliberately simple and auditable:</p>
+<pre class="toc-code"><code>Raw customer data
+→ type and field standardisation
+→ missing-value handling
+→ value and behaviour features
+→ threshold calculation
+→ rule-based tier assignment
+→ upload schema and export</code></pre>
+<p>The principal Python libraries were:</p>
+<ul role="list">
+<li><strong>pandas</strong> for DataFrame-based cleaning, joins, aggregations, filtering, and tier assignment.</li>
+<li><strong>NumPy</strong> for numerical operations and conditional logic where needed.</li>
+<li><strong>Google authentication and API client libraries</strong> for authenticated access to Google services.</li>
+<li><strong>gspread or the Google Sheets client layer</strong> for reading and writing spreadsheet outputs, depending on the deployed implementation.</li>
+<li><strong>json</strong> and <strong>os</strong> from the Python standard library for reading configuration and environment variables.</li>
+<li><strong>logging</strong> from the standard library for operational messages and troubleshooting in Cloud Run.</li>
+</ul>
+<p>The tiering itself was rule-based rather than a black-box model. That was intentional. At this stage, transparency was more important than model complexity: the team needed to understand why a customer was assigned to a particular segment and to be able to adjust the thresholds later.</p>
+<p>A simplified version of the decision logic looked like this:</p>
+<pre class="toc-code"><code>if recurring and value_90d &gt;= upper_threshold:
+    tier = &quot;HIGH_VALUE&quot;
+elif recurring and value_90d &gt;= lower_threshold:
+    tier = &quot;MID_VALUE&quot;
+elif value_90d &gt; 0:
+    tier = &quot;ONE_OFF&quot;
+elif value_90d == 0 and events_90d == 0:
+    tier = &quot;CHURNED&quot;</code></pre>
+<p>The production workflow also incorporated the relevant GMV-based fields as the project evolved. This allowed the business logic to move from a single LTV measure toward a more commercially aligned view of recent customer value.</p>
+<h2>The workflow</h2>
+<p>The full process was designed as a connected chain:</p>
+<pre class="toc-code"><code>Tableau
+   ↓
+Daily data preparation
+   ↓
+Customer value and behaviour signals
+   ↓
+Tier assignment in Python
+   ↓
+Upload-file creation
+   ↓
+Google Ads Customer Match audiences
+   ↓
+Future bidding and optimisation</code></pre>
+<p>The data-processing service was deployed on Google Cloud Run. Google Cloud Scheduler triggers the service once per day through an HTTP request. The service processes the latest available data, applies the classification logic, generates the output, and writes the result to the connected Google Sheets workflow used for inspection and upload preparation.</p>
+<p>Google Cloud documents Cloud Scheduler as a managed service for running jobs on a schedule, including HTTP requests to Cloud Run services. Google Ads Customer Match supports uploading customer data into customer lists and provides upload-related information that can be used to validate the data hand-off. <a href="https://docs.cloud.google.com/run/docs/triggering/using-scheduler" target="_blank" rel="noopener">Cloud Run and Cloud Scheduler</a> · <a href="https://support.google.com/google-ads/answer/10589050" target="_blank" rel="noopener">Google Ads Customer Match</a></p>
+<h2>From manual work to a repeatable process</h2>
+<p>Before automation, the workflow depended on manual coordination:</p>
+<ul role="list">
+<li>Refresh or locate the latest data.</li>
+<li>Recreate the customer segments.</li>
+<li>Prepare the upload files.</li>
+<li>Deliver the files to the advertising platform.</li>
+<li>Check whether the process completed correctly.</li>
+</ul>
+<p>After automation, the process became repeatable:</p>
+<ul role="list">
+<li>A daily scheduler triggers the service.</li>
+<li>The latest data is processed using the same rules.</li>
+<li>Customers are assigned to tiers consistently.</li>
+<li>Upload files are created automatically.</li>
+<li>The result can be checked through logs, Google Sheets, and Google Ads upload status.</li>
+</ul>
+<p>The purpose of automation was not to remove human judgement. It was to move human effort away from repetitive file preparation and toward strategy, testing, and optimisation.</p>
+<h2>Validation before bidding</h2>
+<p>We intentionally validated the workflow in stages.</p>
+<h3>1. Technical validation</h3>
+<p>We checked whether:</p>
+<ul role="list">
+<li>The scheduled service ran successfully.</li>
+<li>The output was generated on time.</li>
+<li>The expected number of rows was processed.</li>
+<li>The Google Ads upload accepted the data.</li>
+<li>The audience showed a usable match rate.</li>
+</ul>
+<p>These checks answer the question: <strong>Did the data pipeline work?</strong></p>
+<h3>2. Classification validation</h3>
+<p>We checked whether:</p>
+<ul role="list">
+<li>Tier sizes were plausible.</li>
+<li>Higher-value groups had higher average value than lower-value groups.</li>
+<li>Recurring customers were separated from one-off customers.</li>
+<li>Customers did not move between tiers unpredictably because of small daily fluctuations.</li>
+<li>The classification covered the active customer base adequately.</li>
+</ul>
+<p>These checks answer the question: <strong>Does the segmentation represent real customer differences?</strong></p>
+<h3>3. Marketing validation</h3>
+<p>Only after the first two layers are reliable should the segments influence bidding or budgets.</p>
+<p>The next stage is to compare outcomes by tier using metrics such as:</p>
+<ul role="list">
+<li>Conversion rate.</li>
+<li>Cost per conversion.</li>
+<li>Revenue or margin per customer.</li>
+<li>Repeat purchase rate.</li>
+<li>Incremental revenue.</li>
+<li>Return on ad spend.</li>
+</ul>
+<p>These checks answer the question: <strong>Does the segmentation improve marketing decisions?</strong></p>
+<h2>What happened during deployment</h2>
+<p>The first scheduled run failed. Cloud Scheduler reached the Cloud Run service, but the application returned an HTTP 500 error. The logs showed a Python <code>KeyError</code> caused by a missing <code>GOOGLE_SERVICE_ACCOUNT</code> environment variable.</p>
+<p>We restored the required configuration, deployed a new Cloud Run revision, and ran the scheduler job again manually. The second run completed successfully.</p>
+<p>This was an important lesson: deployment is not the same as operational readiness. An automated workflow is only complete when it is observable, testable, and recoverable.</p>
+<h2>Current status</h2>
+<p>The data refresh, tiering, file creation, and scheduled upload workflow are operating successfully. The audiences have been uploaded and monitored, but bidding has not yet been changed based on the new classifications.</p>
+<p>That means the current project status should be described accurately:</p>
+<ul role="list">
+<li>The pipeline is operational.</li>
+<li>The classification is being validated.</li>
+<li>The uploads are being monitored.</li>
+<li>The commercial impact of bidding by tier is the next stage.</li>
+</ul>
+<p>This distinction prevents us from claiming ROAS improvement before a controlled advertising test has taken place.</p>
+<h2>What success looks like</h2>
+<p>At the current stage, success means that the workflow produces reliable and useful audiences.</p>
+<p>The main indicators are:</p>
+<ul role="list">
+<li>Daily refreshes complete successfully.</li>
+<li>Tiering rules are applied consistently.</li>
+<li>Upload files are generated without manual reconstruction.</li>
+<li>Google Ads accepts the uploaded data.</li>
+<li>Match rates and audience sizes are usable.</li>
+<li>The tiers show meaningful differences in customer value and behaviour.</li>
+</ul>
+<p>Once bidding begins, the success criteria will expand to include conversion efficiency, incremental value, repeat purchase behaviour, and ROAS.</p>
+<h2>Next steps</h2>
+<p>The next phase is controlled activation rather than immediate broad rollout.</p>
+<p>We can begin by applying the audiences to selected campaigns, establishing a baseline, and comparing performance over a defined test period. The test should separate the effect of the audience classification from other changes such as creative, budget, landing pages, seasonality, or campaign structure.</p>
+<p>Over time, the workflow can support more advanced optimisation:</p>
+<ul role="list">
+<li>Test different bidding strategies by customer tier.</li>
+<li>Compare acquisition, retention, and reactivation use cases.</li>
+<li>Measure incremental lift rather than relying only on attributed conversions.</li>
+<li>Tune the tier thresholds based on observed business outcomes.</li>
+<li>Develop predictive CLTV or propensity models once enough outcome data is available.</li>
+</ul>
+<h2>Conclusion</h2>
+<p>This project started as a customer value classification exercise. It became a practical operating system for value-based marketing.</p>
+<p>The workflow now connects fresh customer data, business rules, customer tiering, audience creation, and scheduled delivery. That connection turns customer value from a reporting concept into something the marketing team can use every day.</p>
+<p>The main achievement was not a single formula or upload. It was building a dependable bridge between understanding customers and acting on that understanding.</p>
+        </div>
+        <aside class="toc-sidebar">
+          <p class="toc-hero__label">On this page</p>
+          <nav data-toc-list class="toc-list" aria-label="On this page">
+            <a data-toc-link data-toc-item data-toc-status="active" href="#" class="toc-link"><span data-toc-text="">Section</span></a>
+          </nav>
+        </aside>
+      </div>
+    </section>
+
+    <section class="cs-next cs-grid">
+      <div class="cs-next__inner">
+        <p class="cs-next__label">Next case study</p>
+        <div class="case-grid is--wide">
+          <a href="case-study-local-seo.html" data-cursor-marquee-text="Read the case study ✦" aria-label="Read the case study: Scaling local SEO content for city landing pages" class="case-tile">
+            <div class="case-tile__media">
+              <img class="case-tile__img" src="img/case-studies/case-02-summit.webp" alt="" loading="lazy">
+              <div class="case-tile__pills">
+                <span class="case-tile__pill is--type">Case study</span>
+                <span class="case-tile__pill">Local SEO</span>
+              </div>
+            </div>
+            <div class="case-tile__body">
+              <h3 class="case-tile__h">Scaling local SEO content for city landing pages</h3>
+              <p class="case-tile__p">A verified, city-specific section added to about 330 pages with a Google Sheet, an LLM and a human approval gate.</p>
+              <div class="case-tile__meta">
+                <span class="case-tile__meta-item"><svg class="case-tile__meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="7" width="17" height="12.5" rx="2"/><path d="M8.5 7V5.5a1.5 1.5 0 0 1 1.5-1.5h4a1.5 1.5 0 0 1 1.5 1.5V7M3.5 12.5h17"/></svg>Helpling</span>
+                <span class="case-tile__meta-divider" aria-hidden="true"></span>
+                <span class="case-tile__meta-item"><svg class="case-tile__meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12h7M12.5 8.5 16 12l-3.5 3.5"/></svg>Read the case study</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  <!-- Contact + footer: Footer Parallax Effect. The footer rises into place as you reach the end; the dark layer fades away. -->
+  <div data-footer-parallax="" class="footer-wrap" id="contact">
+    <footer data-footer-parallax-inner="" class="footer">
+      <!-- Falling 2D Objects (MatterJS): the footer is the box, the images pile up on its bottom edge and can be dragged -->
+      <div class="canvas-matter is--footer">
+        <div class="canvas-matter__target" data-falling-textures="img/footer/footer-img-01.svg,img/footer/footer-img-02.svg,img/footer/footer-img-03.svg,img/footer/footer-img-04.svg,img/footer/footer-img-05.svg,img/footer/footer-img-06.svg,img/footer/footer-img-07.svg" data-falling-amount="7" data-falling-size="24" data-falling-gravity="1.6" data-falling-restitution="0.5"></div>
+      </div>
+      <div class="footer__top is--center">
+        <div class="footer__center">
+          <h2 class="footer__title" data-split="heading" data-split-reveal="lines">Let’s Connect</h2>
+          <!-- The painting: swap the placeholder for <img class="footer__art-img" src="img/footer/painting.webp" alt="..."> -->
+          <div class="footer__art">
+            <!-- Mascot: Face Follow Cursor (Mascot) -->
+            <div class="mascot" data-face="8">
+              <svg class="mascot__svg" xmlns="http://www.w3.org/2000/svg" viewBox="5 0 270 292" role="img" aria-label="Illustration of Reyhaneh Jafari waving"><path class="mascot__f-l mascot__s-d" d="M274.21 49.47C274.21 43.35 269.21 38.38 263.04 38.38L15.91 38.38C9.74 38.38 4.74 43.35 4.74 49.47L4.74 60.12L274.21 60.12L274.21 49.47" stroke-width="1.336" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-a mascot__s-d" d="M4.74 60.12L4.74 232.57C4.74 238.69 9.74 243.66 15.91 243.66L263.04 243.66C269.21 243.66 274.21 238.69 274.21 232.57L274.21 60.12L4.74 60.12" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-d" d="M27.88 50.24C27.88 53.41 25.29 55.98 22.10 55.98C18.90 55.98 16.31 53.41 16.31 50.24C16.31 47.07 18.90 44.50 22.10 44.50C25.29 44.50 27.88 47.07 27.88 50.24"/><path class="mascot__f-d" d="M45.24 50.24C45.24 53.41 42.65 55.98 39.45 55.98C36.26 55.98 33.67 53.41 33.67 50.24C33.67 47.07 36.26 44.50 39.45 44.50C42.65 44.50 45.24 47.07 45.24 50.24"/><path class="mascot__f-d" d="M62.59 50.24C62.59 53.41 60.00 55.98 56.81 55.98C53.61 55.98 51.02 53.41 51.02 50.24C51.02 47.07 53.61 44.50 56.81 44.50C60.00 44.50 62.59 47.07 62.59 50.24"/><path class="mascot__f-d" d="M95.46 120.83C105.75 104.65 116.22 90.36 126.33 72.31C129.82 65.83 134.31 62.18 139.33 60.54C139.33 60.54 144.01 23.34 134.16 17.67C105.51 14.21 89.89 34.23 89.89 34.23C82.06 42.38 75.78 52.81 71.83 72.65C69.81 82.79 74.76 99.35 73.08 110.13C70.89 124.21 61.87 122.74 61.16 140.26C60.89 146.84 66.79 162.50 67.69 167.68C70.02 181.25 64.41 184.54 64.41 184.54C67.87 186.11 74.18 188.62 80.44 188.54L81.56 177.39C83.43 180.87 84.15 188.44 84.15 188.44C88.42 188.51 96.53 189.07 100.83 188.58C103.21 184.41 104.36 179.71 103.93 175.16C103.84 156.16 83.49 137.16 95.46 120.83"/><path class="mascot__f-d" d="M230.87 152.36C230.79 147.11 234.95 134.81 233.46 128.39C229.51 111.32 218.30 105.79 213.52 92.36C209.86 82.08 213.08 69.34 209.21 59.75C201.63 40.99 193.84 31.45 184.31 25.36C157.01 7.94 134.16 17.67 134.16 17.67L140.61 60.17C154.00 56.76 170.76 66.88 182.41 76.55C191.47 83.30 187.87 98.84 190.61 109.99C191.14 115.65 199.85 118.63 203.73 123.97C211.83 138.41 200.22 158.51 208.33 172.96C209.00 174.85 209.89 176.53 210.93 178.07C214.47 177.51 221.79 175.63 225.15 174.64C227.07 174.07 223.10 164.10 223.10 164.10C224.75 163.44 228.65 173.25 230.21 172.45C232.14 171.46 235.56 169.54 237.32 168.31C237.32 168.31 231.10 166.13 230.87 152.36"/><path class="mascot__f-d" d="M203.73 123.97C199.85 118.63 191.14 115.64 190.61 109.99C187.87 98.84 191.47 83.30 182.40 76.55C170.76 66.88 154.00 56.76 140.61 60.17L142.79 90.39L139.33 60.54C134.31 62.17 129.82 65.83 126.33 72.30C116.22 90.36 105.75 104.65 95.46 120.83C83.49 137.16 103.84 156.16 103.93 175.16C104.36 179.71 103.21 184.41 100.83 188.58C123.24 186.06 144.58 177.20 150.68 174.50C158.02 176.21 185.89 182.03 210.93 178.07C209.89 176.53 209.00 174.85 208.33 172.96C200.22 158.51 211.83 138.41 203.73 123.97"/><path class="mascot__s-d" d="M74.41 184.91C72.09 179.79 69.78 174.67 67.47 169.55C64.64 163.29 61.79 156.97 60.21 150.23C58.63 143.49 58.39 136.21 60.73 129.73C63.67 121.58 70.41 115.29 72.56 106.88C75.23 96.37 70.15 85.55 69.23 74.71C67.89 58.90 76.82 32.85 103.25 23.49C117.42 18.46 120.70 31.00 131.82 41.64" fill="none" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__s-d" d="M134.16 17.67C148.38 12.07 172.80 12.40 186.98 24.09C199.37 34.30 212.54 53.36 211.80 70.38C211.61 74.76 210.92 79.21 211.79 83.51C214.52 97.05 230.61 102.69 234.45 115.91C236.17 121.85 235.05 128.25 233.61 134.21C232.17 140.17 230.41 146.21 230.90 152.40C231.39 158.59 234.84 165.08 240.25 166.45" fill="none" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M120.21 136.34C120.21 136.34 149.73 132.35 168.08 134.88L170.99 145.42L128.33 150.10L120.21 136.34" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M179.31 162.40C176.06 152.85 172.57 146.95 172.57 146.95C161.15 141.02 152.64 142.76 149.91 142.67C149.55 142.64 149.19 142.60 148.82 142.57C144.19 142.01 119.29 139.43 98.95 145.06L98.31 152.52C121.03 169.60 153.25 172.71 179.31 162.40" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M98.31 152.52L93.67 206.88L90.52 243.66L180.65 243.66C183.52 232.63 184.25 203.52 184.25 203.52C186.06 187.40 182.83 172.75 179.31 162.40C153.25 172.71 121.03 169.60 98.31 152.52" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M130.65 151.17C130.50 150.88 130.44 150.71 130.44 150.71L129.16 137.36L128.87 134.29C137.79 137.36 151.78 137.63 158.60 137.55L158.59 148.38" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__s-d" d="M130.65 151.17C130.50 150.88 130.44 150.71 130.44 150.71L129.16 137.36L128.87 134.29C137.79 137.36 151.78 137.63 158.60 137.55L158.59 148.38" fill="none" stroke-width="1.029" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-d" d="M127.89 124.04L158.61 124.72L158.60 134.11L158.60 137.55C151.78 137.63 137.79 137.36 128.87 134.29L127.89 124.04"/><path class="mascot__f-l mascot__s-d" d="M177.41 98.76L181.16 78.68C181.16 78.68 198.47 70.48 201.12 88.79C203.78 107.09 184.55 109.83 177.41 98.76" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-d" d="M183.79 99.24C183.84 99.23 183.89 99.22 183.94 99.19C184.12 99.09 184.18 98.86 184.08 98.69C184.03 98.60 179.27 90.13 185.05 85.44C187.08 83.79 189.17 83.08 191.26 83.34C194.88 83.77 197.33 86.96 197.35 86.99C197.48 87.15 197.71 87.18 197.87 87.06C198.03 86.94 198.07 86.70 197.94 86.54C197.84 86.40 195.29 83.08 191.36 82.60C189.06 82.32 186.78 83.08 184.58 84.86C178.31 89.95 183.38 98.96 183.43 99.05C183.51 99.18 183.65 99.25 183.79 99.24"/><path class="mascot__f-d" d="M192.19 91.18C192.30 91.17 192.41 91.11 192.47 91.00C192.58 90.83 192.52 90.60 192.35 90.49C192.28 90.45 185.68 86.52 181.52 91.55C181.39 91.70 181.41 91.94 181.57 92.07C181.73 92.20 181.96 92.18 182.09 92.02C185.84 87.48 191.90 91.09 191.96 91.13C192.04 91.17 192.11 91.19 192.19 91.18"/><path class="mascot__f-l mascot__s-d" d="M184.26 116.29C181.47 115.54 179.58 113.47 179.03 110.64L180.03 109.15C180.39 109.10 180.53 109.65 180.63 110.13C181.04 112.28 182.61 113.97 184.73 114.54C186.19 114.94 187.72 114.74 189.04 113.98C190.36 113.23 191.30 112.00 191.69 110.54C192.40 107.94 191.16 105.19 188.77 103.98C188.55 103.87 188.39 103.69 188.31 103.46C188.24 103.23 188.26 102.98 188.36 102.77C188.47 102.55 188.66 102.39 188.89 102.31C189.12 102.24 189.37 102.26 189.58 102.37C192.74 103.95 194.37 107.59 193.44 111.01C192.92 112.94 191.68 114.56 189.94 115.55C189.00 116.09 187.98 116.42 186.91 116.52C186.02 116.60 185.13 116.53 184.26 116.29" stroke-width="0.726" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M179.85 40.73C179.85 40.73 188.55 58.36 191.05 85.05C193.01 105.87 178.30 127.82 153.02 131.86C129.27 135.65 103.54 128.36 92.95 95.54C82.35 62.72 90.40 35.04 120.11 24.74C149.83 14.44 171.69 20.52 179.85 40.73" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-d" d="M86.69 95.64C86.69 95.64 101.63 96.19 103.59 78.62C105.03 65.66 117.29 58.47 126.91 59.04C137.17 59.65 144.58 47.62 143.68 40.64L143.56 20.24C143.56 20.24 94.76 20.75 86.96 47.39C79.17 74.03 77.87 95.79 77.87 95.79L86.69 95.64"/><path class="mascot__f-d" d="M200.08 84.54C200.08 84.54 187.99 87.29 182.79 70.39C178.96 57.93 170.68 53.12 161.33 55.47C151.36 57.98 139.36 48.11 138.94 41.09L135.27 21.02C135.27 21.02 175.71 13.15 188.33 37.87C200.95 62.60 205.25 84.51 205.25 84.51L200.08 84.54"/><g data-face-target=""><path class="mascot__f-d mascot__s-d" d="M149.99 105.72C144.36 106.25 143.27 101.63 143.26 101.58C143.21 101.38 143.34 101.18 143.54 101.14C143.73 101.09 143.93 101.22 143.98 101.42C144.02 101.60 145.09 105.96 150.94 104.83C151.14 104.81 151.34 104.93 151.38 105.13C151.41 105.33 151.28 105.52 151.08 105.56C150.70 105.63 150.34 105.69 149.99 105.72" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-d" d="M113.41 78.46C113.41 78.46 109.44 75.54 116.80 70.74C124.17 65.94 126.98 66.58 128.43 68.50C129.75 70.25 128.24 73.20 124.04 75.81C119.01 78.95 115.57 80.14 113.41 78.46"/><path class="mascot__f-d" d="M129.43 89.49C129.67 92.00 128.19 94.19 126.13 94.38C124.08 94.57 122.22 92.70 121.98 90.19C121.75 87.69 123.22 85.50 125.28 85.30C127.34 85.11 129.20 86.99 129.43 89.49"/><path class="mascot__f-d" d="M176.72 72.51C176.72 72.51 180.08 68.91 171.94 65.56C163.81 62.22 161.17 63.37 160.11 65.52C159.13 67.49 161.17 70.11 165.78 71.89C171.30 74.04 174.90 74.57 176.72 72.51"/><path class="mascot__f-d" d="M161.39 86.49C161.63 89.00 163.49 90.88 165.54 90.68C167.60 90.49 169.08 88.30 168.84 85.79C168.61 83.29 166.75 81.41 164.69 81.60C162.63 81.80 161.16 83.99 161.39 86.49"/><path class="mascot__f-d mascot__s-d" d="M150.41 96.70C150.27 96.71 150.13 96.65 150.05 96.52C149.95 96.34 150.01 96.11 150.19 96.01C150.22 95.99 153.04 94.35 154.10 91.59C154.93 89.42 154.32 86.34 152.82 85.12C151.91 84.39 150.79 84.43 149.55 85.23C149.51 85.26 149.45 85.30 149.37 85.36C145.08 88.42 142.92 87.43 141.87 86.06C139.93 83.54 139.41 62.29 139.35 59.87C139.35 59.67 139.52 59.50 139.72 59.49C139.92 59.49 140.09 59.65 140.09 59.85C140.24 66.35 140.94 83.64 142.46 85.61C143.70 87.22 145.88 86.94 148.94 84.76C149.03 84.69 149.10 84.64 149.15 84.61C150.66 83.64 152.12 83.61 153.28 84.55C155.03 85.97 155.74 89.38 154.79 91.86C153.63 94.87 150.68 96.58 150.56 96.65C150.51 96.68 150.46 96.70 150.41 96.70" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/></g><path class="mascot__f-l mascot__s-d" d="M97.68 89.23C97.68 89.23 79.14 84.39 79.94 102.87C80.63 119.04 95.58 120.38 102.62 112.29" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M101.13 127.28C100.06 127.38 99.00 127.25 97.97 126.89C96.08 126.24 94.56 124.88 93.69 123.08C92.14 119.89 93.06 116.02 95.87 113.87C96.06 113.72 96.30 113.66 96.54 113.69C96.78 113.72 97.00 113.85 97.14 114.04C97.29 114.23 97.35 114.47 97.32 114.71C97.29 114.95 97.16 115.16 96.97 115.31C94.84 116.94 94.15 119.87 95.32 122.29C95.98 123.66 97.13 124.68 98.57 125.18C100.00 125.68 101.54 125.59 102.91 124.93C104.88 123.98 106.11 122.02 106.11 119.83C106.12 119.34 106.16 118.78 106.52 118.76L107.78 120.03C107.77 122.92 106.29 125.30 103.70 126.56C102.88 126.95 102.02 127.19 101.13 127.28" stroke-width="0.726" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-d" d="M98.91 109.91C98.86 109.92 98.81 109.91 98.76 109.89C98.56 109.83 98.46 109.62 98.53 109.42C98.56 109.33 101.66 100.12 95.11 96.59C92.81 95.35 90.62 95.04 88.61 95.68C85.14 96.78 83.33 100.36 83.31 100.40C83.22 100.58 82.99 100.66 82.81 100.57C82.63 100.48 82.55 100.25 82.64 100.07C82.72 99.91 84.61 96.18 88.38 94.98C90.59 94.27 92.97 94.59 95.46 95.94C102.57 99.77 99.26 109.57 99.23 109.67C99.18 109.81 99.05 109.90 98.91 109.91"/><path class="mascot__f-d" d="M89.16 103.56C89.05 103.57 88.93 103.53 88.85 103.44C88.71 103.28 88.72 103.05 88.88 102.91C88.93 102.86 94.69 97.77 99.71 101.93C99.87 102.06 99.89 102.30 99.76 102.45C99.63 102.61 99.40 102.63 99.24 102.50C94.71 98.74 89.43 103.42 89.37 103.46C89.31 103.52 89.24 103.55 89.16 103.56"/><path class="mascot__s-d" d="M145.25 174.00C145.25 174.00 118.64 152.99 130.10 146.39" fill="none" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__s-d" d="M145.63 173.99C145.63 173.99 170.38 150.81 158.40 145.20" fill="none" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-d" d="M148.54 174.67C148.62 176.47 147.22 177.99 145.42 178.07C143.62 178.14 142.10 176.74 142.02 174.94C141.95 173.14 143.34 171.62 145.14 171.55C146.95 171.47 148.47 172.87 148.54 174.67"/><path class="mascot__f-l mascot__s-d" d="M135.56 153.60C135.56 153.60 128.87 229.74 121.49 266.74C121.49 266.74 92.72 266.01 75.62 260.03C75.62 260.03 85.98 198.14 89.22 184.90C94.30 164.11 98.94 145.06 98.94 145.06C98.94 145.06 111.58 141.48 119.70 141.49" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M135.56 153.60L129.77 169.72C129.77 169.72 112.64 154.47 108.36 144.48L120.21 136.34C120.21 136.34 127.57 147.67 135.56 153.60" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M245.44 115.17C258.02 101.49 263.05 79.19 263.05 79.19C275.05 69.16 280.20 50.06 278.59 49.27C275.92 47.95 271.78 59.77 271.78 59.77C271.78 59.77 277.16 43.55 274.04 43.01C270.36 42.36 266.55 56.70 266.55 56.70C266.55 56.70 270.98 37.85 268.12 38.39C266.15 38.77 263.06 46.49 261.32 51.29C260.60 53.48 260.00 55.08 260.00 55.08C260.00 55.08 260.52 53.49 261.32 51.29C262.95 46.30 265.20 38.19 262.35 38.80C258.26 39.67 253.14 58.56 253.14 58.56C253.14 58.56 249.44 43.72 246.25 49.37C243.07 55.03 243.25 69.18 243.25 69.18C243.25 69.18 237.67 78.67 224.04 99.85L240.24 114.42" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__s-d" d="M256.65 59.07C259.82 62.49 261.63 67.13 261.62 71.79" fill="none" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M258.31 105.39C258.31 105.39 246.25 101.32 227.27 85.93L232.86 82.90L258.56 100.51L258.31 105.39" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M161.37 204.46C186.20 187.51 198.17 191.41 224.57 160.29C237.68 144.83 258.56 97.77 258.56 97.77C258.56 97.77 248.27 85.56 231.57 83.24C231.57 83.24 209.74 115.30 200.35 123.87C192.44 131.10 165.71 145.99 165.71 145.99" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M258.31 105.39C258.31 105.39 261.83 98.55 262.52 97.56C263.21 96.57 245.51 79.56 232.77 78.48L227.27 85.93C227.27 85.93 244.28 87.77 258.31 105.39" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M180.74 141.67L160.04 150.17L155.76 243.63L201.36 243.66C201.36 243.66 200.64 201.56 192.17 169.72" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M160.04 150.17L167.54 165.55C167.54 165.55 177.58 152.08 180.74 141.67L168.08 134.88C168.08 134.88 167.33 143.39 160.04 150.17" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M93.98 284.15C95.89 280.93 83.84 272.28 83.84 272.28C83.84 272.28 99.89 283.12 100.40 280.25C100.75 278.28 94.63 272.65 90.75 269.31C88.96 267.87 87.68 266.74 87.68 266.74C87.68 266.74 88.98 267.79 90.75 269.31C94.84 272.61 101.63 277.59 102.07 274.72C102.70 270.59 86.86 259.09 86.86 259.09C86.86 259.09 102.05 260.89 97.89 255.91C93.74 250.93 80.05 246.94 80.05 246.94C80.05 246.94 76.74 236.54 65.34 213.65L70.48 220.58L86.33 201.63C79.79 190.80 77.18 172.95 77.07 166.45C73.90 168.17 65.67 178.79 52.05 192.08C48.44 195.60 39.96 206.04 38.35 209.42C35.55 215.33 35.89 222.23 38.82 228.08C47.14 244.70 63.66 261.90 63.66 261.90C68.78 276.68 85.20 287.40 86.51 286.18C88.70 284.15 79.12 276.09 79.12 276.09C79.12 276.09 92.36 286.87 93.98 284.15" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M90.75 269.31C88.98 267.79 87.68 266.74 87.68 266.74C87.68 266.74 88.96 267.87 90.75 269.31" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M41.95 241.10C41.95 241.10 51.28 232.45 73.86 223.12L73.86 229.47L46.12 243.66L41.95 241.10" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M102.09 144.26C81.98 149.70 67.69 167.68 51.90 185.55C38.48 200.74 27.57 208.11 38.39 231.55C41.70 238.54 46.12 243.66 46.12 243.66C46.12 243.66 64.17 241.74 74.17 228.18L70.48 220.58L97.89 190.44" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/><path class="mascot__f-l mascot__s-d" d="M41.95 241.10C41.95 241.10 46.28 247.46 46.82 248.54C47.36 249.62 70.75 242.18 77.78 231.50L73.86 223.12C73.86 223.12 64.13 237.18 41.95 241.10" stroke-width="1.452" stroke-linejoin="round" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <div data-mask-reveal>
+            <a href="https://www.linkedin.com/in/reyhanjafari" target="_blank" rel="noopener" aria-label="Connect on LinkedIn" class="btn-animate-chars is--hero">
+              <div class="btn-animate-chars__bg"></div>
+              <span data-button-animate-chars="" class="btn-animate-chars__text">Connect on LinkedIn ↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Reyhaneh Jafari · Berlin, Germany</p>
+        <nav class="footer__links" aria-label="Footer">
+          <a data-underline-link="" data-back-to-top="" href="#top" class="footer__a is--small">Back to top ↑</a>
+        </nav>
+      </div>
+    </footer>
+    <div data-footer-parallax-dark="" class="footer-wrap__dark"></div>
+  </div>
+  </main>
+  </div>
+
+  <script src="vendor/barba.umd.min.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/CustomEase.min.js"></script>
+  <script src="vendor/Draggable.min.js"></script>
+  <script src="vendor/smooothy.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/InertiaPlugin.min.js"></script>
+  <script src="vendor/SplitText.min.js"></script>
+  <script src="vendor/matter.min.js"></script>
+  <script src="js/main.js?v=202611031221"></script>
+  <script src="js/site.js?v=202611031221"></script>
+</body>
+</html>
